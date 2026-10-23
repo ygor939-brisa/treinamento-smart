@@ -2,7 +2,7 @@
 
 Portal estático de apoio à operação Smart Risk. A primeira versão inclui:
 
-- abertura animada com o robô do Analista Smart;
+- abertura animada com o robô Cosmo;
 - biblioteca de manuais por teclado e tecnologia;
 - fluxo visual de desbloqueio sem sinal por tecnologia;
 - busca conversacional local baseada no conteúdo cadastrado;

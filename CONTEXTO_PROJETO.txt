@@ -6,8 +6,8 @@ Data deste pacote: 22/10/2026
 Portal interno de treinamento para operadores da Smart Risk. O site reúne:
 - manuais resumidos de teclados e tecnologias de rastreamento;
 - procedimentos de desbloqueio sem sinal separados por tecnologia;
-- demonstrações visuais ilustradas com duas mãos semitransparentes indicando como segurar e onde tocar;
-- um assistente local chamado Analista Smart;
+- demonstrações visuais ilustradas com dois braços/mãos opacos: um sustenta o terminal e o outro pressiona a tecla indicada;
+- um assistente local chamado Cosmo;
 - uma Área ADM de protótipo para cadastrar novas respostas no navegador.
 
 O site é totalmente estático: HTML, CSS e JavaScript, sem framework e sem etapa de compilação.
@@ -47,12 +47,13 @@ O primeiro conceito estava visualmente genérico e usava muitos cantos arredonda
 
 5. ANIMAÇÕES DOS TECLADOS
 
-As demonstrações usam imagens reais extraídas dos manuais ou fornecidas pelo usuário. A mão é um SVG semitransparente criado no HTML/CSS e se move por coordenadas percentuais.
+As demonstrações de desbloqueio usam equipamentos reconstruídos em HTML/CSS a partir do formato real. Os braços/mãos são SVGs opacos, com volume, manga, unhas e contorno: uma mão segura o equipamento e a outra se desloca até o controle indicado. As etapas de software usam capturas reais extraídas da planilha Treinamento Central Atualizado.xlsx, acompanhadas por um ponteiro animado.
 
 No app.js:
 - manuals[].flow contém título, texto, posição X e posição Y de cada toque;
-- technologies[].points contém as posições da mão para o desbloqueio;
-- moveHand() aplica as coordenadas e reinicia a animação de toque;
+- technologies[].model define o desenho específico de cada terminal;
+- technologies[].software aponta para a captura real da etapa no sistema;
+- renderScene() posiciona o braço de digitação e renderSoftwareScene() mostra a tela original;
 - demoSequences controla a demonstração automática da página inicial.
 
 Equipamentos com imagem confirmada neste pacote:
@@ -63,7 +64,7 @@ Equipamentos com imagem confirmada neste pacote:
 - SasMDT Sascar;
 - Autotrac.
 
-RAVEX, HÍBRIDO e POSITRON usam deliberadamente um terminal esquemático com o aviso “Interface ilustrativa — confirme o modelo instalado”. Isso evita associar uma foto incorreta a uma tecnologia. Quando houver imagens oficiais desses equipamentos, basta adicioná-las a assets/devices e preencher a propriedade image no respectivo item de technologies em app.js.
+RAVEX, HÍBRIDO, POSITRON, Autotrac, Omnilink, OnixSat e as variantes Sascar agora têm desenhos visualmente distintos. As capturas do sistema ficam em assets/unlock/<tecnologia>/ e vieram da planilha enviada.
 
 6. CONTEÚDO E FONTES UTILIZADAS
 
@@ -77,11 +78,11 @@ Os resumos e fluxos foram construídos a partir destes arquivos enviados pelo us
 - MANUAL_SASMDT.pdf
 - Treinamento Central Atualizado.xlsx
 
-Os documentos originais não estão dentro deste ZIP. O pacote contém apenas o site e os recursos visuais necessários para executá-lo.
+Os PDFs originais estão incorporados em assets/manuals/<manual>/manual.pdf, acompanhados pelas quatro primeiras páginas renderizadas para consulta dentro do site.
 
-7. ANALISTA SMART
+7. COSMO
 
-O Analista Smart atual é um protótipo local, não uma integração real com IA:
+O Cosmo atual é um protótipo local, não uma integração real com IA:
 - builtInKnowledge, em app.js, contém respostas fixas;
 - o sistema procura palavras-chave na pergunta;
 - conteúdos cadastrados na Área ADM são gravados em localStorage;
@@ -124,19 +125,23 @@ O site publicado anteriormente em https://treinamento-smart-risk.luisquerdo.chat
 - revisar cada fluxo com um responsável operacional;
 - testar a versão mobile em aparelho real;
 - implementar backend e autenticação antes de uso corporativo da Área ADM;
-- transformar o Analista Smart em uma integração real com base documental.
+- transformar o Cosmo em uma integração real com base documental.
 
 12. IDENTIDADE VISUAL
 
 - logo: assets/smart-risk-logo.png
 - robô: assets/analista-smart-robot.png
-- equipamentos: assets/devices/
+- equipamentos ilustrados: HTML/CSS em app.js e styles.css
+- manuais originais: assets/manuals/
+- capturas do desbloqueio: assets/unlock/
 
 Preservar a proporção da logo e evitar emojis ou ícones improvisados. Os ícones atuais são símbolos SVG definidos no início de index.html.
 ATUALIZAÇÃO 23/10/2026
 - Os tutoriais deixaram de exibir fotografias como animação principal. Agora os equipamentos são ilustrações construídas em HTML/CSS, inspiradas nos modelos reais.
-- Cada teclado mostra duas mãos translúcidas: uma sustenta o terminal e outra indica a tecla ou área pressionada.
-- Os passos passam horizontalmente no mesmo quadro, com botões Anterior/Próxima etapa.
-- Os guias de plataforma usam uma tela ilustrada e ponteiro de mouse animado.
+- Cada teclado mostra dois braços/mãos opacos: um sustenta o terminal e outro pressiona a tecla ou área indicada.
+- Os passos passam horizontalmente no mesmo quadro, com o botão “Próximo passo”.
+- Os guias de plataforma usam as telas reais da planilha e um ponteiro de mouse animado.
+- A biblioteca exibe páginas reais dos PDFs, oferece acesso ao manual completo e pesquisa também os termos do passo a passo.
+- O assistente passou a se chamar Cosmo; o piscar foi reposicionado sobre o olho direito e reduzido a um movimento curto.
 - Cada manual de teclado possui o botão "Gerar PDF para o motorista". O PDF é criado no navegador, com capa e uma página por etapa.
 - O conteúdo desta versão cobre somente o uso básico dos teclados. Não inventar nem publicar sequência de macros até a validação da nova operação/GR pelo usuário.
