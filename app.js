@@ -89,17 +89,17 @@ const manuals = [
 ];
 
 const technologies = [
-  { id: "sighra", name: "SIGHRA", summary: "Comando remoto no terminal SIGHRA e validação na plataforma.", image: "assets/devices/sighra.png", points: [[72,42],[50,53],[69,62],[72,69]], steps: [["Abrir Comando Remoto","No terminal, toque em Comando Remoto."],["Manter a tela aberta","Leia o identificador e não saia da tela."],["Gerar a autorização","Na plataforma autorizada, localize a placa e gere a resposta."],["Digitar e validar","Informe a senha recebida e confirme o retorno."]] },
-  { id: "ravex", name: "RAVEX", summary: "Consulta do código no terminal e geração da resposta na plataforma.", image: null, points: [[31,66],[51,66],[69,66],[78,66]], steps: [["Acessar Segurança","Abra a função de segurança ou desbloqueio."],["Obter o código","Mantenha o identificador visível no equipamento."],["Localizar a placa","Pesquise a placa na plataforma correta."],["Confirmar a ação","Digite a resposta autorizada e valide o retorno."]] },
-  { id: "onixsat", name: "ONIXSAT", summary: "Fluxo de segurança no teclado OnixSat.", image: "assets/devices/onixsat-panel.png", points: [[50,42],[62,57],[55,70],[76,73]], steps: [["Abrir o menu","Acesse a função de segurança no teclado."],["Ler a solicitação","Confirme o identificador apresentado."],["Pesquisar o veículo","Localize a placa na plataforma autorizada."],["Finalizar","Digite a resposta e confira o estado do veículo."]] },
-  { id: "omnilink", name: "OMNILINK", summary: "Liberação pelo terminal alfanumérico e portal Omnilink.", image: "assets/devices/omnilink.png", points: [[87,37],[82,66],[80,82],[48,65]], steps: [["Entrar no menu","Pressione MENU para iniciar o procedimento."],["Selecionar a função","Use as setas para localizar DESBLOQUEIA."],["Confirmar","Pressione ENTER e mantenha a ocorrência no visor."],["Validar o retorno","Digite a autorização e confirme a mensagem final."]] },
-  { id: "sascar-aba", name: "SASCAR · ABA", summary: "Procedimento pela aba Sascar do sistema de atendimento.", image: "assets/devices/sasmdt-screen.png", points: [[77,35],[76,51],[46,55],[78,73]], steps: [["Identificar o veículo","Pesquise a placa e confira o cadastro."],["Abrir a aba Sascar","Selecione a ação de liberação disponível."],["Definir o escopo","Marque somente os itens autorizados."],["Registrar e confirmar","Conclua e registre o resultado."]] },
-  { id: "sascar-novo", name: "SASCAR · NOVO TABLET", summary: "Liberação pelo novo tablet com seleção de segurança.", image: "assets/devices/smart-tab.png", points: [[67,58],[49,51],[52,63],[72,72]], steps: [["Abrir Segurança","Acesse Configuração ou Segurança."],["Selecionar itens","Marque sensores e atuadores autorizados."],["Gerar a senha","Informe o código à Central."],["Confirmar","Digite a resposta e valide o status."]] },
-  { id: "sascar-tablet", name: "SASCAR · TABLET", summary: "Fluxo no tablet Sascar e conferência do retorno.", image: "assets/devices/sasmdt-screen.png", points: [[78,34],[78,50],[50,60],[78,72]], steps: [["Acessar o menu","Abra o módulo de segurança."],["Confirmar o código","Mantenha o identificador visível."],["Escolher a liberação","Selecione somente a ação necessária."],["Aplicar e verificar","Insira a resposta e confira o resultado."]] },
-  { id: "hibrido", name: "HÍBRIDO", summary: "Fluxo para equipamentos híbridos com validação de comunicação.", image: null, points: [[31,66],[50,66],[69,66],[78,66]], steps: [["Confirmar falta de sinal","Valide a última comunicação e o equipamento."],["Abrir a função local","Acesse a geração do código de segurança."],["Gerar a resposta","Pesquise a placa na plataforma correta."],["Testar o resultado","Digite, confirme e valide a liberação."]] },
-  { id: "sascar-teclado", name: "TECLADO SASCAR", summary: "Geração de senha e liberação no terminal Sascar.", image: "assets/devices/sasmdt-screen.png", points: [[79,34],[48,56],[72,62],[80,72]], steps: [["Abrir Gerar Senha","Acesse a função de liberação."],["Marcar o necessário","Selecione os itens autorizados."],["Trocar os códigos","Repasse o código pelo canal seguro."],["Finalizar","Digite a resposta e confirme a mensagem."]] },
-  { id: "positron", name: "POSITRON", summary: "Procedimento sem sinal para rastreador Pósitron.", image: null, points: [[31,66],[50,66],[69,66],[78,66]], steps: [["Identificar o modelo","Confirme o rastreador e a placa."],["Acessar a liberação","Abra o procedimento local indicado."],["Gerar a autorização","Use a plataforma definida para o equipamento."],["Conferir","Valide bloqueio, sirene e travas."]] },
-  { id: "autotrac", name: "AUTOTRAC", summary: "Fluxo pelo terminal Autotrac e ferramenta autorizada.", image: "assets/devices/autotrac.png", points: [[17,49],[47,49],[72,49],[85,50]], steps: [["Abrir a função","Acesse o procedimento de segurança no terminal."],["Coletar o código","Mantenha o identificador exibido na tela."],["Gerar a resposta","Localize o veículo na ferramenta autorizada."],["Aplicar","Digite a resposta e confirme a liberação."]] },
+  { id: "sighra", name: "SIGHRA", model: "sighra", software: "image-004.jpg", summary: "Comando remoto no terminal SIGHRA e validação na plataforma.", points: [[72,58],[57,62],[62,48],[72,58]], steps: [["Abrir Comando Remoto","No terminal, toque em Comando Remoto."],["Manter a tela aberta","Confira o código e não saia da tela."],["Gerar a autorização","Na tela real da plataforma, localize a placa e gere a resposta."],["Digitar e validar","Informe a senha no terminal e confirme o retorno."]] },
+  { id: "ravex", name: "RAVEX", model: "ravex", software: "image-005.jpg", summary: "Consulta do código no terminal numérico e geração da resposta na plataforma.", points: [[45,69],[61,69],[60,48],[72,69]], steps: [["Acessar Segurança","Use o teclado numérico para abrir a função de segurança."],["Obter o código","Mantenha o identificador visível no visor azul."],["Localizar a placa","Na tela real da plataforma, selecione a operação correspondente."],["Confirmar a ação","Digite a contrassenha e valide o retorno."]] },
+  { id: "onixsat", name: "ONIXSAT", model: "onixsat", software: "image-005.jpg", summary: "Fluxo de segurança no teclado OnixSat.", points: [[50,60],[72,59],[58,50],[78,69]], steps: [["Abrir o menu","Acesse a função de segurança no teclado retroiluminado."],["Ler a solicitação","Confirme o identificador apresentado no visor."],["Pesquisar o veículo","Use a tela real do sistema OnixSat para localizar a placa."],["Finalizar","Digite a resposta no teclado e confira o estado do veículo."]] },
+  { id: "omnilink", name: "OMNILINK", model: "omnilink", software: "image-003.jpg", summary: "Liberação pelo terminal alfanumérico e portal Omnilink.", points: [[83,42],[80,67],[58,50],[79,79]], steps: [["Entrar no menu","Pressione MENU no canto superior direito."],["Selecionar a função","Use as setas azuis para localizar DESBLOQUEIA."],["Gerar a senha","Na tela real do portal, abra a geração de senha para desbloqueio."],["Validar o retorno","Digite a autorização e pressione ENTER."]] },
+  { id: "sascar-aba", name: "SASCAR · ABA", model: "sascar-touch", software: "software.jpg", summary: "Procedimento pela aba Sascar do sistema de atendimento.", points: [[70,56],[58,58],[55,50],[76,64]], steps: [["Identificar o veículo","No terminal, confirme a identificação do veículo."],["Abrir segurança","Acesse Sensores e Atuadores."],["Usar a aba Sascar","Na captura real do sistema, selecione a ação autorizada."],["Registrar e confirmar","Conclua a ação e registre o resultado."]] },
+  { id: "sascar-novo", name: "SASCAR · NOVO TABLET", model: "sascar-touch", software: "image-014.jpg", summary: "Liberação no novo tablet com seleção de sensores e atuadores.", points: [[73,63],[57,56],[58,48],[73,66]], steps: [["Abrir o menu","No tablet, abra Gerar Senha."],["Selecionar itens","Marque somente sensores e atuadores autorizados."],["Gerar na plataforma","Use a tela real do sistema para gerar a contrassenha."],["Confirmar","Digite a contrassenha no tablet e valide o status."]] },
+  { id: "sascar-tablet", name: "SASCAR · TABLET", model: "sascar-touch", software: "image-011.jpg", summary: "Fluxo no tablet Sascar e conferência do retorno.", points: [[77,38],[59,53],[58,48],[74,62]], steps: [["Abrir o menu","Toque em Sensores e Atuadores."],["Gerar senha","Selecione os itens e toque em Gerar Senha."],["Localizar o veículo","Use a tela real do sistema para obter a contrassenha."],["Aplicar e verificar","Digite a contrassenha e confira o resultado."]] },
+  { id: "hibrido", name: "HÍBRIDO", model: "sascar-hybrid", software: "image-010.jpg", summary: "Fluxo no terminal híbrido com validação de comunicação.", points: [[47,47],[78,48],[58,50],[80,70]], steps: [["Abrir Serviços","Pressione F7 no teclado híbrido."],["Gerar o código","Use as setas e ENTER para abrir a senha de segurança."],["Gerar a resposta","Use a tela real do sistema para localizar a placa."],["Testar o resultado","Digite a resposta no terminal e valide a liberação."]] },
+  { id: "sascar-teclado", name: "TECLADO SASCAR", model: "sascar-keyboard", software: "image-009.jpg", summary: "Geração de senha e liberação no terminal Sascar.", points: [[43,68],[64,40],[58,50],[83,72]], steps: [["Abrir o menu","Use as teclas de função do terminal Sascar."],["Obter o código","Mantenha o código no visor verde."],["Gerar a resposta","Na tela real do sistema, selecione Gerar Senha."],["Finalizar","Digite a resposta e confirme com ENTER."]] },
+  { id: "positron", name: "POSITRON", model: "positron", software: "image-008.jpg", summary: "Procedimento sem sinal para o terminal Pósitron.", points: [[77,63],[72,55],[58,50],[79,71]], steps: [["Abrir Atuador","Na tela inicial, toque em Próximo e depois em Acionar atuador."],["Solicitar desbloqueio","Selecione Desbloquear Veículo."],["Gerar a senha","Use a tela real da plataforma Pósitron."],["Conferir","Digite a senha temporária e toque em OK."]] },
+  { id: "autotrac", name: "AUTOTRAC", model: "autotrac", software: "image-007.jpg", summary: "Fluxo pelo terminal Autotrac e ferramenta autorizada.", points: [[18,60],[78,66],[58,50],[84,58]], steps: [["Abrir a função","Pressione a tecla indicada para abrir o menu de segurança."],["Coletar o código","Mantenha a senha exibida no visor."],["Gerar a resposta","Use a tela real de Detalhes do Veículo para gerar a senha."],["Aplicar","Digite a resposta no teclado e confirme a liberação."]] },
 ];
 
 const demoSequences = manuals.filter((manual) => ["smart-tab", "onixsmart", "omnilink"].includes(manual.id));
@@ -131,7 +131,7 @@ function navigate(route, updateHash = true) {
   menuToggle.setAttribute("aria-expanded", "false");
   if (updateHash) history.replaceState(null, "", `#${route}`);
   window.scrollTo({ top: 0, behavior: "smooth" });
-  const titles = { inicio: "Treinamento Smart", manuais: "Manuais", desbloqueio: "Desbloqueio sem sinal", analista: "Analista Smart", admin: "Área ADM" };
+  const titles = { inicio: "Treinamento Smart", manuais: "Manuais", desbloqueio: "Desbloqueio sem sinal", analista: "Cosmo", admin: "Área ADM" };
   document.title = `${titles[route] || "Treinamento Smart"} | Smart Risk`;
 }
 routeControls.forEach((control) => control.addEventListener("click", (event) => { event.preventDefault(); navigate(control.dataset.route); }));
@@ -149,20 +149,37 @@ const deviceTargets = {
   sasmdt: { screen: [49,31], menu: [73,43], nav: [73,58], confirm: [72,68] },
   generic: { screen: [50,28], menu: [20,54], nav: [75,60], confirm: [78,71], enter: [78,71], letters: [49,64] },
   system: { search: [39,29], row: [52,51], inputs: [71,60], outputs: [71,69], history: [72,51], review: [82,78] },
+  sighra: { menu: [72,58], screen: [57,62], confirm: [72,58] },
+  ravex: { menu: [45,69], screen: [50,28], confirm: [72,69] },
+  onixsat: { menu: [50,60], screen: [50,25], confirm: [78,69] },
+  "sascar-touch": { menu: [73,60], screen: [50,42], confirm: [73,66] },
+  "sascar-hybrid": { menu: [47,47], screen: [50,28], confirm: [80,70] },
+  "sascar-keyboard": { menu: [43,68], screen: [50,27], confirm: [83,72] },
+  positron: { menu: [77,63], screen: [50,43], confirm: [79,71] },
+  autotrac: { menu: [18,60], screen: [50,30], confirm: [84,58] },
 };
 
 function handMarkup() {
-  return `<svg class="hold-hand" viewBox="0 0 170 160" aria-hidden="true"><path d="M22 130c14-8 18-26 18-47V51c0-13 18-13 18 0v31-48c0-13 18-13 18 0v45-54c0-13 18-13 18 0v54-42c0-13 18-13 18 0v46c0 41-23 61-61 61H22Z"/></svg><svg class="action-hand" viewBox="0 0 92 108" aria-hidden="true"><path d="M38 76V29c0-8 12-8 12 0v22-11c0-8 12-8 12 0v13-8c0-8 12-8 12 0v15-5c0-7 11-7 11 1v22c0 17-12 27-31 27H43c-9 0-15-4-20-11L9 73c-5-8 6-15 12-8l17 11Z"/><circle cx="44" cy="25" r="12"/></svg>`;
+  return `<svg class="hold-arm" viewBox="0 0 250 170" aria-hidden="true"><path class="sleeve" d="M0 112 92 85l51 68-123 17Z"/><path class="skin" d="M80 96c18-17 34-38 50-51 11-9 23 3 16 14l-16 22 9-8c10-9 22 5 12 14l-10 9 4-2c12-6 20 10 9 17l-38 26c-18 12-38 10-54-3Z"/><path class="nail" d="M137 52c4-3 8 2 5 6l-7 10c-4-2-5-5-2-9Z"/></svg><svg class="typing-arm" viewBox="0 0 255 190" aria-hidden="true"><path class="sleeve" d="m255 18-83 11-11 68 94 39Z"/><path class="skin" d="M183 35c-16 3-29 12-37 26l-18 32-39 28c-7 5-2 17 7 14l38-17-25 28c-8 9 4 21 13 13l29-25-19 27c-7 10 7 20 15 11l29-35c13-15 21-35 24-58l3-23Z"/><path class="finger" d="m98 128-48 17c-12 4-17-13-6-18l52-20Z"/><path class="nail" d="M47 129c6-2 9 7 3 10l-8 2c-4-4-2-10 5-12Z"/><circle class="tap-ring" cx="44" cy="134" r="14"/></svg>`;
 }
 
 function alphaKeys() {
   return ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"].map((key) => `<i>${key}</i>`).join("");
 }
 
+function qwertyRows(extraClass = "") { return `<div class="qwerty ${extraClass}">${alphaKeys()}</div>`; }
+
 function deviceMarkup(model, label) {
   if (model === "system") return `<div class="system-window"><div class="system-top"><span></span><span></span><span></span><b>Central de monitoramento</b></div><aside><i></i><i></i><i></i><i></i></aside><main><div class="system-search" data-control="search">Pesquisar placa <strong>ABC1D23</strong></div><div class="system-grid"><div class="system-row system-head"><span>Placa</span><span>Status</span><span>Comunicação</span></div><div class="system-row" data-control="row"><span>ABC1D23</span><span>Em viagem</span><span>Agora</span></div></div><div class="system-menu"><span data-control="history">Histórico</span><span data-control="inputs">Entradas · sensores</span><span data-control="outputs">Saídas · atuadores</span><span data-control="review">Revisar ação</span></div><div class="mouse-pointer"><i></i></div></main></div>`;
-  if (model === "smart-tab" || model === "sasmdt") return `<div class="training-device tablet-device ${model}"><div class="speaker-grid"></div><div class="device-screen" data-control="screen"><div class="screen-status"><b>${label}</b><small>Terminal conectado</small></div><div class="tile-grid"><span>STATUS</span><span data-control="messages">MENSAGENS</span><span data-control="nav">MENU</span><span data-control="confirm">CONFIRMAR</span></div></div></div>${handMarkup()}`;
-  const theme = model === "omnilink" ? "omnilink-device" : model === "onixsmart" ? "onix-device" : model === "driver-keyboard" ? "driver-device" : "generic-device";
+  if (["smart-tab","sasmdt","sighra","sascar-touch","positron"].includes(model)) {
+    const tiles = model === "sighra" ? ["MACROS","MENSAGENS","COMANDO REMOTO","CONFIGURAÇÃO"] : model === "positron" ? ["MACROS","CAIXA DE ENTRADA","MENSAGENS","PRÓXIMO"] : ["JORNADA","MACROS","MENSAGENS","SENSORES"];
+    return `<div class="training-device tablet-device ${model}"><div class="speaker-grid"></div><div class="device-screen" data-control="screen"><div class="screen-status"><b>${label}</b><small>Terminal conectado</small></div><div class="tile-grid">${tiles.map((tile,index)=>`<span data-control="${index===2?'messages':index===3?'menu':''}">${tile}</span>`).join("")}</div></div></div>${handMarkup()}`;
+  }
+  if (model === "ravex") return `<div class="training-device ravex-device"><div class="ravex-screen" data-control="screen"><b>RAVEX</b><span>MENU SEGURANÇA</span></div><div class="ravex-pad">${["1","2","3","4","5","6","7","8","9","C","0","OK"].map((key,index)=>`<button data-control="${index===9?'menu':index===11?'confirm':''}">${key}</button>`).join("")}</div></div>${handMarkup()}`;
+  if (model === "sascar-keyboard") return `<div class="training-device sascar-keyboard-device"><div class="sascar-screen" data-control="screen"><b>SASCAR TECNOLOGIA</b><span>F0-SISTEMA  F7-SERVIÇOS</span></div><div class="function-row">${[0,1,2,3,4,5,6,7,8,9].map(n=>`<button data-control="${n===7?'menu':''}">F${n}</button>`).join("")}</div>${qwertyRows("sascar-keys")}<button class="enter-key" data-control="confirm">Enter</button></div>${handMarkup()}`;
+  if (model === "sascar-hybrid") return `<div class="training-device hybrid-device"><div class="hybrid-left">${[1,2,3,4,5,6,7,8,9].map(n=>`<i>${n}</i>`).join("")}</div><div class="hybrid-screen" data-control="screen"><b>SasMDT</b><span>F7 - Serviços</span></div><div class="hybrid-nav">◀ ▲ ● ▼ ▶</div><div class="hybrid-functions">${["F0","F1","F2","F3","F4","F5","F6","F7"].map(x=>`<button data-control="${x==='F7'?'menu':''}">${x}</button>`).join("")}</div>${qwertyRows("hybrid-keys")}<button class="hybrid-enter" data-control="confirm">Enter</button></div>${handMarkup()}`;
+  if (model === "autotrac") return `<div class="training-device autotrac-device"><div class="autotrac-screen" data-control="screen"><b>AUTOTRAC</b><span>MENU DE SEGURANÇA</span></div><div class="autotrac-top"><button data-control="menu">MENU</button><button>MENSAGEM</button><button>STATUS</button></div>${qwertyRows("autotrac-keys")}<div class="autotrac-nav" data-control="confirm">◀ ▲ ● ▼ ▶</div></div>${handMarkup()}`;
+  const theme = model === "omnilink" ? "omnilink-device" : ["onixsmart","onixsat"].includes(model) ? "onix-device" : model === "driver-keyboard" ? "driver-device" : "generic-device";
   return `<div class="training-device keyboard-device ${theme}"><div class="keyboard-screen" data-control="screen"><b>${label}</b><span>Selecione uma opção</span></div><div class="keyboard-controls"><button data-control="menu">MENU</button><button data-control="1">1</button><button>2</button><button>3</button></div><div class="keyboard-main" data-control="letters">${alphaKeys()}</div><div class="keyboard-footer"><button data-control="alt">ALT</button><span></span><button data-control="nav">◀ ▲ ▼ ▶</button><button data-control="enter">ENTER</button><button data-control="confirm">OK</button></div></div>${handMarkup()}`;
 }
 
@@ -177,6 +194,14 @@ function renderScene(container, model, target, label) {
   container.querySelectorAll("[data-control]").forEach((control) => control.classList.toggle("control-active", control.dataset.control === target));
   void container.offsetWidth;
   container.classList.add("is-tapping");
+}
+
+function renderSoftwareScene(container, src, label) {
+  if (!container) return;
+  container.className = "device-scene software-scene is-tapping";
+  container.style.setProperty("--action-x", "58%");
+  container.style.setProperty("--action-y", "54%");
+  container.innerHTML = `<figure><img src="${src}" alt="Tela real do procedimento ${escapeHtml(label)}" /><figcaption>Captura do material Treinamento Central Atualizado</figcaption></figure><div class="mouse-pointer"><i></i></div>`;
 }
 
 function renderHorizontalSteps(element, steps, activeIndex, dataName) {
@@ -214,8 +239,8 @@ const manualGrid = document.getElementById("manualGrid");
 let manualFilter = "todos";
 function renderManuals() {
   const term = document.getElementById("manualSearch").value.trim().toLocaleLowerCase("pt-BR");
-  const filtered = manuals.filter((manual) => (manualFilter === "todos" || manual.type === manualFilter) && [manual.title, manual.description, ...manual.tags].join(" ").toLocaleLowerCase("pt-BR").includes(term));
-  manualGrid.innerHTML = filtered.map((manual) => `<article class="manual-card"><div class="manual-thumb"><span class="manual-device-mark ${manual.type}">${icon(manual.type === "teclado" ? "keyboard" : "monitor")}<small>GUIA VISUAL</small></span></div><div class="manual-copy"><div class="manual-meta"><span>${manual.type === "teclado" ? "Manual de teclado" : "Manual de tecnologia"}</span><span>${manual.pages}</span></div><h3>${manual.title}</h3><p>${manual.description}</p><div class="manual-tags">${manual.tags.map((tag) => `<span>${tag}</span>`).join("")}</div><button class="manual-open" type="button" data-manual="${manual.id}">Abrir guia ${icon("arrow")}</button></div></article>`).join("");
+  const filtered = manuals.filter((manual) => (manualFilter === "todos" || manual.type === manualFilter) && [manual.title, manual.description, manual.source, ...manual.tags, ...manual.flow.flat()].join(" ").toLocaleLowerCase("pt-BR").includes(term));
+  manualGrid.innerHTML = filtered.map((manual) => `<article class="manual-card"><div class="manual-thumb manual-page-thumb"><img src="assets/manuals/${manual.id}/page-01.png" alt="Capa do ${manual.title}" loading="lazy" /></div><div class="manual-copy"><div class="manual-meta"><span>${manual.type === "teclado" ? "Manual de teclado" : "Manual de tecnologia"}</span><span>${manual.pages}</span></div><h3>${manual.title}</h3><p>${manual.description}</p><div class="manual-tags">${manual.tags.map((tag) => `<span>${tag}</span>`).join("")}</div><button class="manual-open" type="button" data-manual="${manual.id}">Consultar manual ${icon("arrow")}</button></div></article>`).join("");
   document.getElementById("manualEmpty").hidden = filtered.length > 0;
   manualGrid.querySelectorAll("[data-manual]").forEach((button) => button.addEventListener("click", () => openManual(button.dataset.manual)));
 }
@@ -227,33 +252,29 @@ const manualDialog = document.getElementById("manualDialog");
 function openManual(id) {
   const manual = manuals.find((item) => item.id === id);
   if (!manual) return;
-  let currentStep = 0;
-  document.getElementById("dialogContent").innerHTML = `<div class="dialog-body"><div class="dialog-head"><span class="section-kicker">${manual.type === "teclado" ? "Guia de teclado" : "Guia de tecnologia"}</span><h2>${manual.title}</h2><p>${manual.description}</p></div><div class="dialog-training"><div class="device-canvas dialog-device-canvas illustrated-canvas"><div id="dialogDeviceScene" class="device-scene"></div><div class="screen-caption" id="dialogCaption"></div></div><div class="dialog-steps"><div class="dialog-step-head"><h3>Passo a passo</h3><span id="dialogCounter"></span></div><div class="step-viewport"><ol class="step-track" id="dialogSteps"></ol></div><div class="training-controls"><button type="button" id="dialogPrev">Anterior</button><button type="button" id="dialogNext">Próxima etapa</button></div></div></div><div class="dialog-alert"><b>Atenção:</b> ${manual.alert}</div>${manual.type === "teclado" ? `<div class="manual-scope"><div><b>Escopo desta versão</b><p>O guia ensina o uso básico do teclado. A sequência de macros da nova operação será incluída somente após validação.</p></div><button class="pdf-button" type="button" id="generateDriverPdf">${icon("book")} Gerar PDF para o motorista</button></div>` : ""}<div class="dialog-source">Fonte de treinamento: ${manual.source}</div></div>`;
-  const selectDialogStep = (index) => {
-    currentStep = Math.max(0, Math.min(index, manual.flow.length - 1));
-    const step = manual.flow[currentStep];
-    document.getElementById("dialogCaption").textContent = step[0];
-    document.getElementById("dialogCounter").textContent = `${currentStep + 1} / ${manual.flow.length}`;
-    renderHorizontalSteps(document.getElementById("dialogSteps"), manual.flow, currentStep, "dialog-step");
-    renderScene(document.getElementById("dialogDeviceScene"), manual.device, step[2], manual.title);
-    document.getElementById("dialogPrev").disabled = currentStep === 0;
-    document.getElementById("dialogNext").textContent = currentStep === manual.flow.length - 1 ? "Recomeçar" : "Próxima etapa";
+  let currentPage = 0;
+  const previewPages = [1,2,3,4];
+  document.getElementById("dialogContent").innerHTML = `<div class="dialog-body"><div class="dialog-head"><span class="section-kicker">${manual.type === "teclado" ? "Manual de teclado" : "Manual de tecnologia"}</span><h2>${manual.title}</h2><p>${manual.description}</p></div><div class="manual-reader"><div class="manual-page-viewport"><div class="manual-page-track" id="manualPageTrack">${previewPages.map(page=>`<figure><img src="assets/manuals/${manual.id}/page-${String(page).padStart(2,"0")}.png" alt="${escapeHtml(manual.title)}, página ${page}" /><figcaption>Página ${page} do manual original</figcaption></figure>`).join("")}</div></div><div class="manual-reader-controls"><button type="button" id="dialogPrev">Anterior</button><span id="dialogCounter"></span><button type="button" id="dialogNext">Próximo passo</button></div></div><div class="dialog-alert"><b>Atenção:</b> ${manual.alert}</div><div class="manual-scope"><div><b>Material original</b><p>As páginas acima são do manual enviado. Use o arquivo completo para consultar todas as instruções.</p></div><a class="pdf-button" href="assets/manuals/${manual.id}/manual.pdf" target="_blank" rel="noopener">${icon("book")} Abrir manual completo</a>${manual.type === "teclado" ? `<button class="pdf-button" type="button" id="generateDriverPdf">${icon("book")} Gerar PDF para o motorista</button>` : ""}</div><div class="dialog-source">Fonte de treinamento: ${manual.source}</div></div>`;
+  const selectDialogPage = (index) => {
+    currentPage = (index + previewPages.length) % previewPages.length;
+    document.getElementById("manualPageTrack").style.transform = `translateX(-${currentPage * 100}%)`;
+    document.getElementById("dialogCounter").textContent = `${currentPage + 1} / ${previewPages.length}`;
+    document.getElementById("dialogPrev").disabled = currentPage === 0;
+    document.getElementById("dialogNext").textContent = currentPage === previewPages.length - 1 ? "Voltar ao início" : "Próximo passo";
   };
-  document.getElementById("dialogPrev").addEventListener("click", () => selectDialogStep(currentStep - 1));
-  document.getElementById("dialogNext").addEventListener("click", () => selectDialogStep(currentStep === manual.flow.length - 1 ? 0 : currentStep + 1));
+  document.getElementById("dialogPrev").addEventListener("click", () => selectDialogPage(currentPage - 1));
+  document.getElementById("dialogNext").addEventListener("click", () => selectDialogPage(currentPage === previewPages.length - 1 ? 0 : currentPage + 1));
   document.getElementById("generateDriverPdf")?.addEventListener("click", () => generateDriverPdf(manual));
-  selectDialogStep(0);
+  selectDialogPage(0);
   manualDialog.showModal();
 }
 manualDialog.querySelector(".dialog-close").addEventListener("click", () => manualDialog.close());
 manualDialog.addEventListener("click", (event) => { if (event.target === manualDialog) manualDialog.close(); });
 
 const techList = document.getElementById("techList");
-const technologyModels = { sighra: "smart-tab", ravex: "generic", onixsat: "onixsmart", omnilink: "omnilink", "sascar-aba": "system", "sascar-novo": "smart-tab", "sascar-tablet": "sasmdt", hibrido: "generic", "sascar-teclado": "sasmdt", positron: "generic", autotrac: "driver-keyboard" };
 function technologyScene(tech, index) {
-  if (technologyModels[tech.id] === "system") return { model: "system", target: ["search","row","inputs","review"][index] };
-  if (index === 2) return { model: "system", target: "search" };
-  return { model: technologyModels[tech.id] || "generic", target: ["menu","screen","screen","confirm"][index] };
+  if (index === 2) return { screenshot: `assets/unlock/${tech.id}/${tech.software}` };
+  return { model: tech.model, target: ["menu","screen","screen","confirm"][index] };
 }
 let selectedTech = technologies[0];
 let unlockStep = 0;
@@ -270,9 +291,11 @@ function renderUnlock() {
   renderHorizontalSteps(document.getElementById("unlockSteps"), selectedTech.steps, unlockStep, "unlock-step");
   document.getElementById("unlockProgress").innerHTML = selectedTech.steps.map((_, index) => `<span class="${index <= unlockStep ? "active" : ""}"></span>`).join("");
   document.getElementById("prevUnlock").disabled = unlockStep === 0;
-  document.getElementById("nextUnlock").innerHTML = unlockStep === selectedTech.steps.length - 1 ? `Concluir guia ${icon("check")}` : `Próxima etapa ${icon("arrow")}`;
+  document.getElementById("nextUnlock").innerHTML = unlockStep === selectedTech.steps.length - 1 ? `Concluir guia ${icon("check")}` : `Próximo passo ${icon("arrow")}`;
   const scene = technologyScene(selectedTech, unlockStep);
-  renderScene(document.getElementById("unlockDeviceScene"), scene.model, scene.target, selectedTech.name);
+  document.getElementById("illustrationNote").textContent = scene.screenshot ? "Tela original do Treinamento Central" : "Ilustração fiel ao formato do equipamento";
+  if (scene.screenshot) renderSoftwareScene(document.getElementById("unlockDeviceScene"), scene.screenshot, selectedTech.name);
+  else renderScene(document.getElementById("unlockDeviceScene"), scene.model, scene.target, selectedTech.name);
   document.querySelectorAll("[data-unlock-step]").forEach((item) => item.addEventListener("click", () => { unlockStep = Number(item.dataset.unlockStep); renderUnlock(); }));
 }
 document.getElementById("nextUnlock").addEventListener("click", () => { if (unlockStep < selectedTech.steps.length - 1) { unlockStep += 1; renderUnlock(); } else showToast("Guia concluído. Registre o resultado conforme o procedimento da operação."); });
