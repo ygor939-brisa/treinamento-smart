@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-23",
+  "url": "http://127.0.0.1:4173",
+  "designScore": "A-",
+  "aiSlopScore": "A-",
+  "categoryGrades": {
+    "hierarchy": "A",
+    "typography": "A-",
+    "spacing": "A-",
+    "colorContrast": "A",
+    "interactionStates": "A-",
+    "responsive": "A-",
+    "contentQuality": "A",
+    "aiSlop": "A-",
+    "motion": "A",
+    "performanceFeel": "A-"
+  },
+  "findings": [
+    { "id": "FINDING-001", "title": "Tipografia genérica", "impact": "medium", "status": "verified" },
+    { "id": "FINDING-002", "title": "Composição móvel centralizada", "impact": "medium", "status": "verified" },
+    { "id": "FINDING-003", "title": "Mãos pouco legíveis", "impact": "high", "status": "verified" },
+    { "id": "FINDING-004", "title": "Controles móveis apertados", "impact": "medium", "status": "verified" }
+  ]
+}
