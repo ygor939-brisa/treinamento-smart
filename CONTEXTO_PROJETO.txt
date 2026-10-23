@@ -6,7 +6,7 @@ Data deste pacote: 22/10/2026
 Portal interno de treinamento para operadores da Smart Risk. O site reúne:
 - manuais resumidos de teclados e tecnologias de rastreamento;
 - procedimentos de desbloqueio sem sinal separados por tecnologia;
-- demonstrações visuais com o equipamento real e uma mão semitransparente indicando onde tocar;
+- demonstrações visuais ilustradas com duas mãos semitransparentes indicando como segurar e onde tocar;
 - um assistente local chamado Analista Smart;
 - uma Área ADM de protótipo para cadastrar novas respostas no navegador.
 
@@ -133,3 +133,10 @@ O site publicado anteriormente em https://treinamento-smart-risk.luisquerdo.chat
 - equipamentos: assets/devices/
 
 Preservar a proporção da logo e evitar emojis ou ícones improvisados. Os ícones atuais são símbolos SVG definidos no início de index.html.
+ATUALIZAÇÃO 23/10/2026
+- Os tutoriais deixaram de exibir fotografias como animação principal. Agora os equipamentos são ilustrações construídas em HTML/CSS, inspiradas nos modelos reais.
+- Cada teclado mostra duas mãos translúcidas: uma sustenta o terminal e outra indica a tecla ou área pressionada.
+- Os passos passam horizontalmente no mesmo quadro, com botões Anterior/Próxima etapa.
+- Os guias de plataforma usam uma tela ilustrada e ponteiro de mouse animado.
+- Cada manual de teclado possui o botão "Gerar PDF para o motorista". O PDF é criado no navegador, com capa e uma página por etapa.
+- O conteúdo desta versão cobre somente o uso básico dos teclados. Não inventar nem publicar sequência de macros até a validação da nova operação/GR pelo usuário.
