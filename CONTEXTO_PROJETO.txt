@@ -1,12 +1,12 @@
 PROJETO: TREINAMENTO SMART
-Data deste pacote: 22/10/2026
+Data deste pacote: 23/10/2026
 
 1. OBJETIVO
 
 Portal interno de treinamento para operadores da Smart Risk. O site reúne:
 - manuais resumidos de teclados e tecnologias de rastreamento;
 - procedimentos de desbloqueio sem sinal separados por tecnologia;
-- demonstrações visuais ilustradas com dois braços/mãos opacos: um sustenta o terminal e o outro pressiona a tecla indicada;
+- demonstrações ilustradas com braços realistas em SVG: um braço sustenta o equipamento e o outro digita conforme o passo;
 - um assistente local chamado Cosmo;
 - uma Área ADM de protótipo para cadastrar novas respostas no navegador.
 
@@ -47,24 +47,22 @@ O primeiro conceito estava visualmente genérico e usava muitos cantos arredonda
 
 5. ANIMAÇÕES DOS TECLADOS
 
-As demonstrações de desbloqueio usam equipamentos reconstruídos em HTML/CSS a partir do formato real. Os braços/mãos são SVGs opacos, com volume, manga, unhas e contorno: uma mão segura o equipamento e a outra se desloca até o controle indicado. As etapas de software usam capturas reais extraídas da planilha Treinamento Central Atualizado.xlsx, acompanhadas por um ponteiro animado.
+Os equipamentos não usam mais fotografia como base de animação: são ilustrações em HTML/CSS, desenhadas para lembrar os modelos reais das fotos do usuário. Dois braços em SVG (manga azul-marinho, punho, dedos) participam da cena.
 
 No app.js:
-- manuals[].flow contém título, texto, posição X e posição Y de cada toque;
-- technologies[].model define o desenho específico de cada terminal;
-- technologies[].software aponta para a captura real da etapa no sistema;
-- renderScene() posiciona o braço de digitação e renderSoftwareScene() mostra a tela original;
+- deviceMarkup() monta a ilustração de cada equipamento com dados de interação (data-control) e teclas identificadas (data-key);
+- manuals[].flow define título, texto e alvo de cada etapa;
+- runTypingScene() digita letra por letra no visor enquanto o braço acompanha cada tecla;
+- gripArmToScene()/aimArmAtControl() posicionam o braço de sustentação e o de digitação por medição real (getBoundingClientRect);
 - demoSequences controla a demonstração automática da página inicial.
 
-Equipamentos com imagem confirmada neste pacote:
-- Smart TAB / SIGHRA;
-- OnixSmart / OnixSat;
-- Terminal Alfanumérico Omnilink;
-- teclado do Guia do Motorista;
-- SasMDT Sascar;
-- Autotrac.
-
-RAVEX, HÍBRIDO, POSITRON, Autotrac, Omnilink, OnixSat e as variantes Sascar agora têm desenhos visualmente distintos. As capturas do sistema ficam em assets/unlock/<tecnologia>/ e vieram da planilha enviada.
+Cada tipo de equipamento tem aparência própria neste pacote:
+- Smart TAB / SIGHRA: tablet escuro com grade de alto-falantes e tiles azuis;
+- OnixSmart: corpo azul com visor LCD verde e teclas claras com dígitos em sobrescrito (Q1, W2...), SETUP/ALT/SHIFT à esquerda e ENTER em L;
+- Terminal Alfanumérico Omnilink: corpo azul-marinho com "asas", logo OmniLink, LCD de uma linha e teclas redondas turquesa;
+- Guia do Motorista: corpo preto com teclas ovais de contorno branco, LCD verde grande, F1 a F6 circulares e ESPAÇO oval;
+- SasMDT Sascar e Autotrac: terminais próprios (SasMDT tablet; Autotrac azul de asas largas com LCD e teclas pequenas);
+- RAVEX, site GSM, SASCAR web e fluxos de plataforma usam a janela do Sistema de Gestão de Riscos (barra Superior com abas e "Sair", busca de placa, grade e menu da linha), conforme as telas do Manual do Sistema de Gestão de Riscos;
 
 6. CONTEÚDO E FONTES UTILIZADAS
 
@@ -78,11 +76,11 @@ Os resumos e fluxos foram construídos a partir destes arquivos enviados pelo us
 - MANUAL_SASMDT.pdf
 - Treinamento Central Atualizado.xlsx
 
-Os PDFs originais estão incorporados em assets/manuals/<manual>/manual.pdf, acompanhados pelas quatro primeiras páginas renderizadas para consulta dentro do site.
+Os documentos originais em PDF NÃO entram no ZIP. As paginas digitalizadas desses manuais, porém, foram copiadas para assets/manuals/<id do manual>/ (page-01.png a page-04.png + manual.pdf) e são exibidas no site: capas na Biblioteca de manuais, galeria "Páginas do manual original" no dialog de cada guia e botão "Ver tela real no manual" no fluxo de desbloqueio.
 
-7. COSMO
+7. ASSISTENTE COSMO (antigo "Analista Smart")
 
-O Cosmo atual é um protótipo local, não uma integração real com IA:
+O assistente Cosmo é um protótipo local, não uma integração real com IA:
 - builtInKnowledge, em app.js, contém respostas fixas;
 - o sistema procura palavras-chave na pergunta;
 - conteúdos cadastrados na Área ADM são gravados em localStorage;
@@ -120,9 +118,6 @@ O site publicado anteriormente em https://treinamento-smart-risk.luisquerdo.chat
 
 11. PRÓXIMOS PASSOS RECOMENDADOS
 
-- validar as coordenadas da mão em todos os equipamentos e tamanhos de tela;
-- obter fotos oficiais de RAVEX, HÍBRIDO e POSITRON;
-- revisar cada fluxo com um responsável operacional;
 - testar a versão mobile em aparelho real;
 - implementar backend e autenticação antes de uso corporativo da Área ADM;
 - transformar o Cosmo em uma integração real com base documental.
@@ -131,17 +126,47 @@ O site publicado anteriormente em https://treinamento-smart-risk.luisquerdo.chat
 
 - logo: assets/smart-risk-logo.png
 - robô: assets/analista-smart-robot.png
-- equipamentos ilustrados: HTML/CSS em app.js e styles.css
-- manuais originais: assets/manuals/
-- capturas do desbloqueio: assets/unlock/
+- equipamentos: assets/devices/
 
 Preservar a proporção da logo e evitar emojis ou ícones improvisados. Os ícones atuais são símbolos SVG definidos no início de index.html.
 ATUALIZAÇÃO 23/10/2026
 - Os tutoriais deixaram de exibir fotografias como animação principal. Agora os equipamentos são ilustrações construídas em HTML/CSS, inspiradas nos modelos reais.
-- Cada teclado mostra dois braços/mãos opacos: um sustenta o terminal e outro pressiona a tecla ou área indicada.
-- Os passos passam horizontalmente no mesmo quadro, com o botão “Próximo passo”.
-- Os guias de plataforma usam as telas reais da planilha e um ponteiro de mouse animado.
-- A biblioteca exibe páginas reais dos PDFs, oferece acesso ao manual completo e pesquisa também os termos do passo a passo.
-- O assistente passou a se chamar Cosmo; o piscar foi reposicionado sobre o olho direito e reduzido a um movimento curto.
+- Cada teclado mostra duas mãos translúcidas: uma sustenta o terminal e outra indica a tecla ou área pressionada.
+- Os passos passam horizontalmente no mesmo quadro, com botões Anterior/Próxima etapa.
+- Os guias de plataforma usam uma tela ilustrada e ponteiro de mouse animado.
 - Cada manual de teclado possui o botão "Gerar PDF para o motorista". O PDF é criado no navegador, com capa e uma página por etapa.
 - O conteúdo desta versão cobre somente o uso básico dos teclados. Não inventar nem publicar sequência de macros até a validação da nova operação/GR pelo usuário.
+
+ATUALIZAÇÃO 23/10/2026 (REVISÃO COSMO)
+- Visual e tipografia agora seguem o site da Smart Risk: paleta navy (#0f132f/#1b2a86), azul vivo (#0785f1), azul claro (#aad0f7/#deeffd) e fundo #f8fbff; fonte Montserrat (Google Fonts). Topbar de contato com telefone, e-mail e redes sociais.
+- O assistente foi renomeado para "Cosmo" em todo o site (menu, hero, chat, Área ADM e textos). Não usar mais o nome "Analista".
+- As mãos translúcidas deram lugar a braços realistas em SVG (manga azul-marinho, punho branco, mão com dedos): um braço SUSTENTA o equipamento e o outro DIGITA a tecla exata do passo. Posicionamento calculado por medição real (getBoundingClientRect) gravado nas variáveis --action-x/y e --hold-x/y da cena.
+- Na digitação alfanumérica, o braço acompanha as letras digitadas ("PLACA" aparece no visor) e a tecla ativa ganha destaque (key-hit).
+- Robô piscando naturalmente: pálpebras SVG/CSS (.robot-eye-lid) fecham em intervalos aleatórios (~2,1s a 5,3s), com piscada dupla ocasional.
+- Passos em trilha horizontal com barra de progresso, número fantasma da etapa e botões "Anterior" / "Próximo passo".
+- Trilho de tecnologias do desbloqueio com rolagem horizontal no mobile.
+- Corrigido overflow horizontal em telas pequenas (min-width: 0 nos painéis de treino; topbar compacta em ≤590px).
+- Parâmetros de QA na URL (apenas para tests; não são usados no fluxo normal): ?qa=N&qaStep=N (device/etapa do demo, desliga autoplay), ?eyes=1 (olhos fechados em loop), ?diag=1 (marca em vermelho elementos que estouram a largura). Sempre antes do hash.
+- dist/ sincronizada com os arquivos da raiz.
+
+ATUALIZAÇÃO 23/10/2026 (RODADA 3 — pedidos do usuário desta rodada)
+- Teclados ilustrados DIFERENTES por tecnologia, feitos a partir das fotos reais (assets/devices): OnixSmart (azul, LCD verde com bezel escuro, teclas cinza-claras com sobrescritos, SETUP/ALT/SHIFT/ESC/ENTER em L, "Onix"), Omnilink (navy com asas, logo OmniLink, LCD 1 linha verde, teclas redondas turquesa, pills MENU/ALT, setas redondas), Guia do Motorista (preto, ovals de contorno branco, LCD verde + grade de furos, F1-F6 circulares, ESPAÇO oval, MENU/2nd/DEL/setas) e Autotrac (terminal azul de asas largas, LCD verde, teclas pequenas brancas, ENTER verde / SOC vermelho, "SATEL"). O SIGHRA/smart-tab (tablet com tiles) continuou o aprovado. Todos mantêm data-control/data-key para os braços continuarem funcionando.
+- A tela de plataforma (RAVEX, site GSM, SASCAR web, gestão de riscos) virou uma janela do "Sistema de Gestão de Riscos" conforme o manual RAVEX: barra com abas "Serviços do veículo"/"Fluxo de comandos"/"Sair", busca de placa, grade Placa/Status/Comunicação, menu "Opções da linha" (Histórico, Entradas, Saídas, Revisar) e tiles de atalhos.
+- Parâmetros de QA extra: ?scene=<modelo>&target=<controle> (ex.: ?scene=driver-keyboard&target=letters) para validar cenas isoladas antes do hash.
+- Piscada redesenhada: a pálpebra, na cor do visor, desce deslizando dentro de uma faixa recortada (.robot-eyes) na altura exata dos olhos (geometria medida na imagem: olhos entre 26,4% e 30,4% da altura; fundo do visor em tons #17374a/#1a3d51). Ao abrir, a pálpebra some por completo (sem mancha no visor); ao fechar, cobre o olho com a cor do visor e um filete ciano como dobra da pálpebra.
+- Páginas REAIS dos manuais exibidas no site: capas na biblioteca de manuais (assets/manuals/<id>/page-01.png), galeria "Páginas do manual original" com as 4 páginas de cada guia no dialog (clique abre a página em tamanho real) e link "Abrir manual completo (PDF)" (assets/manuals/<id>/manual.pdf).
+- Botão "Ver tela real no manual" no fluxo de desbloqueio abre o dialog do manual relacionado à tecnologia (mapeamento techManualPages em app.js; Autotrac é o único sem manual e fica sem botão).
+- Busca ampliada: a barra de manuais agora procura também nos títulos/textos de cada etapa dos fluxos; a página de desbloqueio ganhou busca própria ("Buscar tecnologia ou etapa") que filtra nome, resumo e etapas das tecnologias.
+- Restos de "Analista" removidos de README e comentários (o nome de arquivo analista-smart-robot.png foi mantido de propósito para não quebrar referências).
+
+ATUALIZA��O 23/10/2026 (RODADA 4 � remodelagem com o Excel "Treinamento Central Atualizado")
+- Fonte nova de verdade: o Excel "Treinamento Central Atualizado.rar" (29,6 MB) foi extra�do e lido por dentro. As 12 abas (Base, SIGHRA, RAVEX, ONIXSAT, Omnilink, Aba Sascar, Novo tablet Sascar, Tablet Sascar, Hibrido, Teclado Sascar, Positron, Autotrac) t�m todo o conte�do em TEXTBOXES dos drawings; um parser (xl/drawings/drawingN.xml + rels) extraiu texto e imagens na ordem das linhas. O roteiro do desbloqueio no site agora � FIEL ao Excel.
+- "SASCAR � ABA" foi corrigido: n�o � passo a passo � � a escolha do TIPO de equipamento (como na aba "Aba Sscar" do Excel: "Escolha o Modelo" com 4 fotos clic�veis). Agora existe a tecnologia "SASCAR � ESCOLHA O MODELO" que abre um painel com os 4 modelos (Novo Tablet, Tablet, Teclado Sascar e H�brido), cada um com a foto real, e leva ao fluxo do modelo escolhido.
+- Fotografia da tecnologia aparece ao selecion�-la: imagem no cabe�alho do workspace (techPhoto) e miniatura em cada item da lista de tecnologias (assets/tech/*.png extra�das do Excel; RAVEX � um recorte da foto real do teclado em uso; "sascar.png" � uma composta dos 4 modelos para o card "Escolha o Modelo").
+- Passos reais por tecnologia (exemplos): SIGHRA (Comando Telef�nico, n�o sair da tela, Ctrl+F placa, Senha Motorista/Comando/Senha Telef�nica), RAVEX (bot�o esquerdo ? ContraSenha, guia Contra-senha, a��es Desalarmar/Destravar Ba�s/Desabilitar Completo, senha com " | "), ONIXSAT (Senha e Contra Senha ? Desbloqueio Manual ? bot�o direito na placa ? motivo livre), Omnilink (Menu ? Desbloqueio ? Ocorr�ncia ? Senha Desbloqueio ? Data/Hora, Motivo Tratado/Outro, Opera��o Desbloqueio/Desativar), Sascar Novo Tablet/Tablet (Gerar Senha, SASGC, caractere � = 0, Atuadores ? Desativar bloqueio, login padr�o BR 123456/12345 ou login pr�prio), H�brido (F7 ? F0/F1/F2 ? contrassenha ? F2 login), Teclado Sascar (F7 ? F1 ? TAB/[X]/[ESPA�O] ? motorista padr�o gerado pelo sistema, senhas em sequ�ncia com mesmo login), Positron (seta ? Acionar Atuador ? site Positron ? contra senha ? OK ? atuador verde ? CONFIRMAR) e Autotrac (Autotrac Prime + sem sinal, VER STATUS + seta ?3x, Senhas no Supervisor Web, Enviar, e recupera��o do teclado pelo serial sem os zeros).
+- Cada etapa mostra a cena correspondente ("d:alvo" = equipamento, "s:alvo" = janela do Sistema de Gest�o de Riscos); novos alvos: Entradas/Sa�das.
+- Teclado Sascar f�sico novo (kb-sascar): corpo escuro, LCD verde com faixa SEQ | SRV | MSG | TXT, fileira F1-F9 verdes, teclas azuis com sobrescritos, MENU/DEL/setas/Enter verde � usado no H�brido e no Teclado Sascar.
+- Remo��es pedidas: barra superior com telefone/e-mail/redes sociais (topbar); hero-stats (7 manuais / 11 fluxos / 24 h); header "Aprendizado visual / Veja o movimento..." da home (o player continua); bloco "Base atual / 7 manuais / ..." do Cosmo; e a PISCADA do rob� por completo (p�lpebras .robot-eye-lid, blink JS e ?eyes=1) � o rob� agora fica em est�tica. �cones n�o usados (phone/mail/in/ig/fb/x) removidos.
+- Abertura inicial voltou ao estilo do arquivo original (lockup + rob� voando + status), SEM o bot�o "Pular abertura" (HTML, CSS e listener removidos).
+- Texto da se��o Objetivo reescrito no tom modesto: "Aqui s� ensinamos o b�sico � de verdade." + nota no Cosmo ("Aqui tamb�m s� cobrimos o b�sico...").
+- QA novo: ?tech=<id> (ex.: ?tech=sascar#abertura) + ?qaStep=N para abrir etapa no unlock; dist/ sincronizada.

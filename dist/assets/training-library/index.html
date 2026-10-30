@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biblioteca de manuais operacionais extraída do Smart Risk">
+  <title>Biblioteca de Manuais</title>
+  <link rel="stylesheet" href="css/manuals.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <span class="eyebrow">BIBLIOTECA OPERACIONAL</span>
+      <h1>Manuais de tecnologias</h1>
+      <p>Procedimentos para consulta durante o atendimento.</p>
+    </div>
+  </header>
+
+  <main id="manuals-app" class="app-shell" aria-live="polite"></main>
+
+  <div class="lightbox" id="manual-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Fechar imagem ampliada">×</button>
+    <img alt="Imagem ampliada do manual">
+  </div>
+
+  <script src="js/manuals-data.js"></script>
+  <script src="js/manuals-app.js"></script>
+</body>
+</html>

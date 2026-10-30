@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071426" />
+    <meta name="description" content="Treinamento Smart: procedimentos operacionais de rastreamento, teclados e desbloqueio sem sinal." />
+    <title>Treinamento Smart | Smart Risk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="svg-defs" aria-hidden="true">
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v17H6.5A2.5 2.5 0 0 0 4 22V5.5Zm16 0A2.5 2.5 0 0 0 17.5 3H13v17h4.5A2.5 2.5 0 0 1 20 22V5.5Z"/></symbol>
+      <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M7 16h10"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="1"/><path d="M8 21h8M12 16v5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M9 11h.01M15 11h.01M9 15h6M12 7V3M9 3h6M4 12H2M22 12h-2"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M7.5 7.5A7 7 0 0 1 20 12M4 12a7 7 0 0 0 12.5 4.5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 4V4Z"/><path d="M8 9h8M8 13h5"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <defs>
+        <linearGradient id="armSkinT" gradientUnits="userSpaceOnUse" x1="50" y1="140" x2="290" y2="190">
+          <stop offset="0" stop-color="#f9ddc0" />
+          <stop offset=".52" stop-color="#f0cba6" />
+          <stop offset="1" stop-color="#dca777" />
+        </linearGradient>
+        <linearGradient id="armSkinH" gradientUnits="userSpaceOnUse" x1="210" y1="50" x2="90" y2="230">
+          <stop offset="0" stop-color="#f6d7ba" />
+          <stop offset=".55" stop-color="#eec59d" />
+          <stop offset="1" stop-color="#d7a172" />
+        </linearGradient>
+        <linearGradient id="armSkinH2" gradientUnits="userSpaceOnUse" x1="30" y1="-26" x2="-150" y2="26">
+          <stop offset="0" stop-color="#f2cba3" />
+          <stop offset="1" stop-color="#d29a68" />
+        </linearGradient>
+        <linearGradient id="armSleeveT" gradientUnits="userSpaceOnUse" x1="200" y1="112" x2="318" y2="202">
+          <stop offset="0" stop-color="#2a44c2" />
+          <stop offset="1" stop-color="#141d62" />
+        </linearGradient>
+        <linearGradient id="armSleeveH" gradientUnits="userSpaceOnUse" x1="-176" y1="-36" x2="-70" y2="36">
+          <stop offset="0" stop-color="#2a44c2" />
+          <stop offset="1" stop-color="#141d62" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <div class="splash" id="splash" aria-hidden="true">
+      <div class="splash-lockup"><img class="splash-logo" src="assets/smart-risk-logo.png" alt="Smart Risk — Risco inteligente" /><span>Central de treinamento operacional</span><div class="intro-bot cosmo" aria-hidden="true"><img src="assets/analista-smart-robot.png" alt="" /><i class="cosmo-wink"></i><i class="intro-trail"></i></div></div>
+      <div class="splash-status">Carregando biblioteca de procedimentos</div>
+    </div>
+
+    <header class="site-header" id="topo">
+      <a class="brand" href="#inicio" data-route="inicio" aria-label="Treinamento Smart — início"><img src="assets/smart-risk-logo.png" alt="Smart Risk" /><span>Treinamento Smart</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mainNav" aria-expanded="false"><svg><use href="#i-menu"></use></svg><span>Menu</span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <a href="#inicio" data-route="inicio" class="active">Início</a>
+        <div class="nav-group">
+          <a href="#manuais" data-route="manuais">Manuais <span class="chevron">⌄</span></a>
+          <div class="nav-dropdown">
+            <button type="button" data-manual-filter="teclado"><svg><use href="#i-keyboard"></use></svg><span><b>Manuais de teclado</b><small>Uso básico, mensagens e navegação</small></span></button>
+            <button type="button" data-manual-filter="tecnologia"><svg><use href="#i-monitor"></use></svg><span><b>Manuais de tecnologia</b><small>Plataformas e rastreadores</small></span></button>
+          </div>
+        </div>
+        <a href="#desbloqueio" data-route="desbloqueio">Desbloqueio sem sinal</a>
+        <a href="#analista" data-route="analista">Cosmo</a>
+      </nav>
+      <button class="admin-entry" type="button" data-route="admin"><svg><use href="#i-lock"></use></svg><span>Área ADM</span></button>
+    </header>
+
+    <main id="conteudo">
+      <section class="page active" id="inicio" data-page="inicio">
+        <div class="hero-shell">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Treinamento operacional Smart Risk</div>
+            <h1>Treinamento claro<br /><span>para decisões seguras.</span></h1>
+            <p>Consulte manuais, acompanhe cada etapa do desbloqueio por tecnologia e encontre rapidamente a orientação necessária durante a operação.</p>
+            <div class="hero-actions"><button class="primary-button" type="button" data-route="manuais">Consultar manuais <svg><use href="#i-arrow"></use></svg></button><button class="secondary-button" type="button" data-route="analista"><svg><use href="#i-bot"></use></svg>Falar com o Cosmo</button></div>
+          </div>
+          <div class="hero-visual reveal delay-1"><div class="robot-panel"><div class="robot-copy"><small>COSMO</small><b>Pronto para orientar</b><span>Base de treinamento ativa</span></div><div class="robot-wrap cosmo"><img src="assets/analista-smart-robot.png" alt="Cosmo, assistente do Treinamento Smart" /><i class="cosmo-wink"></i></div></div></div>
+        </div>
+        <div class="home-content">
+          <section class="purpose-section reveal"><div><span class="section-kicker">Objetivo</span><h2>Um ponto de consulta<br />para toda a operação.</h2></div><p>Este portal reúne os materiais usados no treinamento e organiza os procedimentos por equipamento. O operador pode consultar os manuais, acompanhar cada mudança de tela e revisar o desbloqueio sem sinal na sequência apresentada pelo treinamento central.</p></section>
+          <section class="path-section reveal" aria-label="Áreas do portal">
+            <button class="path-card" type="button" data-route="manuais"><svg><use href="#i-book"></use></svg><span><small>CONSULTA</small><b>Manuais</b><em>Guias de teclados e plataformas</em></span><svg class="path-arrow"><use href="#i-arrow"></use></svg></button>
+            <button class="path-card" type="button" data-route="desbloqueio"><svg><use href="#i-shield"></use></svg><span><small>PROCEDIMENTO</small><b>Desbloqueio sem sinal</b><em>Etapas separadas por tecnologia</em></span><svg class="path-arrow"><use href="#i-arrow"></use></svg></button>
+            <button class="path-card" type="button" data-route="analista"><svg><use href="#i-bot"></use></svg><span><small>SUPORTE</small><b>Cosmo</b><em>Respostas baseadas nos materiais</em></span><svg class="path-arrow"><use href="#i-arrow"></use></svg></button>
+          </section>
+        </div>
+      </section>
+
+      <section class="page inner-page" id="manuais" data-page="manuais">
+        <div class="inner-hero"><div><span class="section-kicker light">Biblioteca operacional</span><h1>Manuais</h1></div><p>Abra o material e percorra todas as páginas no próprio portal.</p></div>
+        <div class="toolbar"><div class="filter-tabs" role="tablist" aria-label="Filtrar manuais"><button class="active" type="button" data-filter="todos">Todos <span>7</span></button><button type="button" data-filter="teclado">Teclados <span>5</span></button><button type="button" data-filter="tecnologia">Tecnologias <span>2</span></button></div><label class="search-box"><svg><use href="#i-search"></use></svg><input id="manualSearch" type="search" placeholder="Buscar manual ou função" /></label></div>
+        <div class="manual-grid" id="manualGrid"></div><div class="empty-state" id="manualEmpty" hidden><svg><use href="#i-search"></use></svg><h3>Nenhum guia encontrado</h3><p>Tente outro termo ou remova o filtro.</p></div>
+      </section>
+
+      <section class="page inner-page" id="desbloqueio" data-page="desbloqueio">
+        <div class="inner-hero"><div><span class="section-kicker light">Procedimento assistido</span><h1>Desbloqueio sem sinal</h1></div><div class="security-note"><svg><use href="#i-shield"></use></svg><p><b>Uso operacional controlado.</b> O guia não exibe contrassenhas. Confirme placa, solicitante e autorização antes de agir.</p></div></div>
+        <div class="unlock-layout"><div class="tech-stack"><label class="tech-search"><svg><use href="#i-search"></use></svg><input id="techSearch" type="search" placeholder="Buscar tecnologia ou etapa" /></label><aside class="tech-list" id="techList" aria-label="Tecnologias disponíveis"></aside></div><div class="unlock-workspace"><div class="workspace-head"><div><span id="techBadge">SIGHRA</span><h2 id="techTitle">Desbloqueio SIGHRA</h2><p id="techSummary"></p></div><img class="tech-photo" id="techPhoto" src="assets/tech/sighra.png" alt="Equipamento da tecnologia selecionada" hidden /></div><div class="tech-chooser" id="techChooser" hidden></div><div class="unlock-player" id="unlockPlayer"><div class="device-canvas unlock-canvas procedure-canvas" id="unlockDeviceCanvas"><div id="unlockDeviceScene" class="procedure-scene" aria-label="Demonstração animada do procedimento"></div><div class="screen-caption" id="unlockCaption"></div></div><div class="unlock-instructions"><div class="step-progress" id="unlockProgress"></div><div class="step-viewport"><ol class="unlock-steps step-track" id="unlockSteps"></ol></div><div class="unlock-actions"><button type="button" id="prevUnlock">Voltar</button><button class="primary-button" type="button" id="nextUnlock">Próximo passo <svg><use href="#i-arrow"></use></svg></button></div></div></div></div></div></div>
+      </section>
+
+      <section class="page inner-page analyst-page" id="analista" data-page="analista">
+        <div class="analyst-shell"><aside class="analyst-aside"><div class="mini-bot"><img src="assets/analista-smart-robot.png" alt="Robô Cosmo" /></div><span class="section-kicker light">Assistente operacional</span><h1>Cosmo</h1><p>Faça uma pergunta sobre os manuais cadastrados. A resposta indica a fonte utilizada.</p><small class="cosmo-note">Aqui também só cobrimos o básico. Dúvidas além do roteiro devem seguir para a Central.</small></aside><div class="chat-panel"><div class="chat-header"><div><svg><use href="#i-bot"></use></svg><span><b>Cosmo</b><small>Pronto para ajudar</small></span></div><button class="icon-button" type="button" id="clearChat" aria-label="Limpar conversa"><svg><use href="#i-refresh"></use></svg></button></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="message bot-message"><span class="message-avatar"><svg><use href="#i-bot"></use></svg></span><div><p>Olá. Sou o <b>Cosmo</b>. Posso ajudar com uso dos teclados, mensagens, sensores, atuadores, pesquisa de placa e fluxos de desbloqueio.</p><small>Agora</small></div></div><div class="suggestions"><button type="button">Como usar o teclado Smart TAB?</button><button type="button">Onde vejo sensores e atuadores?</button><button type="button">Como pesquisar uma placa?</button></div></div><form class="chat-form" id="chatForm"><label><svg><use href="#i-message"></use></svg><textarea id="chatInput" rows="1" placeholder="Digite sua dúvida operacional..." maxlength="400"></textarea></label><button type="submit" aria-label="Enviar pergunta"><svg><use href="#i-arrow"></use></svg></button><small>Confirme ações críticas no procedimento oficial vigente.</small></form></div></div>
+      </section>
+
+      <section class="page inner-page admin-page" id="admin" data-page="admin">
+        <div class="admin-shell"><div class="admin-brand-panel"><a class="brand" href="#inicio" data-route="inicio"><img src="assets/smart-risk-logo.png" alt="Smart Risk" /><span>Administração</span></a><div><span class="section-kicker light">Área restrita</span><h1>Base do Cosmo</h1><p>Cadastre orientações objetivas para ampliar o conteúdo disponível aos operadores.</p></div><small>Protótipo local. Os dados permanecem neste navegador.</small></div><div class="admin-panel" id="adminPanel"><div class="admin-login" id="adminLogin"><div class="admin-icon"><svg><use href="#i-lock"></use></svg></div><span class="section-kicker">Acesso administrativo</span><h2 id="adminHeading">Área administrativa</h2><p id="adminIntro">Crie o acesso inicial deste protótipo para testar o cadastro da base.</p><form id="adminLoginForm"><label>E-mail corporativo<input id="adminEmail" type="email" autocomplete="username" required placeholder="nome@empresa.com.br" /></label><label>Senha<input id="adminPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo de 6 caracteres" /></label><button class="primary-button" type="submit"><span id="adminSubmitText">Configurar acesso</span><svg><use href="#i-arrow"></use></svg></button></form><div class="prototype-warning">Para uso corporativo, conecte esta tela a uma autenticação segura e a um banco centralizado.</div></div><div class="admin-dashboard" id="adminDashboard" hidden><div class="admin-dashboard-head"><div><span class="section-kicker">Base de conhecimento</span><h2>Conteúdos do Cosmo</h2></div><button type="button" id="adminLogout">Sair</button></div><form class="knowledge-form" id="knowledgeForm"><label>Título<input id="knowledgeTitle" required maxlength="80" placeholder="Ex.: Consulta de sensores no Smart TAB" /></label><label>Categoria<select id="knowledgeCategory"><option>Teclado</option><option>Tecnologia</option><option>Desbloqueio</option><option>Procedimento geral</option></select></label><label class="wide">Orientação<textarea id="knowledgeAnswer" required rows="5" maxlength="900" placeholder="Escreva uma resposta objetiva, com etapas e alertas importantes."></textarea></label><label>Palavras-chave<input id="knowledgeKeywords" placeholder="sensor, status, smart tab" /></label><button class="primary-button" type="submit">Adicionar à base</button></form><div class="knowledge-list-head"><b>Itens adicionados neste navegador</b><span id="knowledgeCount">0 itens</span></div><div class="knowledge-list" id="knowledgeList"></div></div></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="brand"><img src="assets/smart-risk-logo.png" alt="Smart Risk" /><span>Treinamento Smart</span></div><p>Conteúdo de apoio à operação. Procedimentos críticos devem seguir a autorização e o manual oficial vigente.</p><a href="#topo">Voltar ao topo</a></footer>
+    <dialog class="manual-dialog" id="manualDialog"><button class="dialog-close" type="button" aria-label="Fechar"><svg><use href="#i-close"></use></svg></button><div id="dialogContent"></div></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="assets/vendor/pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

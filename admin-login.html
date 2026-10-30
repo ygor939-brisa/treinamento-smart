@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#071426" />
+  <title>Acesso administrativo | Smart Risk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="login-body">
+  <main class="login-shell">
+    <section class="login-brand">
+      <a href="index.html#inicio"><img src="assets/smart-risk-logo.png" alt="Smart Risk" /></a>
+      <div><span>Área restrita</span><h1>Administração do<br />Treinamento Smart</h1><p>Gerencie manuais, conteúdos operacionais e o treinamento do Cosmo em um ambiente separado.</p></div>
+      <small>Protótipo local · acesso administrativo</small>
+    </section>
+    <section class="login-panel">
+      <a class="back-link" href="index.html#inicio">← Voltar ao portal</a>
+      <div class="login-card">
+        <div class="login-lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div>
+        <span class="kicker">Acesso administrativo</span>
+        <h2>Entrar na Área ADM</h2>
+        <p>Informe seu login e sua senha para continuar.</p>
+        <form id="adminAccessForm">
+          <label>Login<input id="adminAccessEmail" type="email" autocomplete="username" required placeholder="seu.login@smartrisk.com.br" /></label>
+          <label>Senha<input id="adminAccessPassword" type="password" autocomplete="current-password" required placeholder="Digite sua senha" /></label>
+          <p class="login-error" id="loginError" role="alert" hidden>Login ou senha incorretos.</p>
+          <button type="submit">Entrar <span>→</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

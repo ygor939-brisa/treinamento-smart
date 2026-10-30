@@ -1,0 +1,96 @@
+CONTEXTO DO PROJETO — TREINAMENTO SMART
+Atualização: 26/10/2026
+
+OBJETIVO
+Portal operacional da Smart Risk para consulta de manuais, orientação visual de desbloqueio sem sinal e atendimento pelo assistente Cosmo.
+
+BASE DESTA VERSÃO
+- O projeto recebido em C:\Users\ygor\Documents\Projeto Padrão foi adotado como base.
+- O conteúdo dos desbloqueios veio do arquivo Treinamento Central Atualizado.xlsx.
+- Os roteiros permanecem completos, com 6 a 10 etapas conforme cada tecnologia. Não resumir todos os procedimentos em quatro passos.
+
+ALTERAÇÕES MAIS RECENTES
+- A abertura não possui botão "Pular abertura".
+- O Cosmo atravessa a abertura e passa junto à marca Smart Risk.
+- A prévia de teclado foi removida da página inicial.
+- Os equipamentos do desbloqueio são componentes HTML/CSS interativos, e não fotografias estáticas.
+- Ravex e Positron têm modelos próprios; os outros teclados conservam formatos e controles específicos.
+- O visor do equipamento muda a cada passo, e a mão de ação se move para a tecla indicada.
+- Nas etapas de software, a interface é reconstruída em tamanho grande. Cursor, campo e comando ativos ficam destacados, evitando a captura inteira minúscula e ilegível.
+- O leitor de manuais abre dentro do site, começa pela capa e permite avançar ou voltar uma página por vez.
+- Não existe botão para abrir o PDF completo em outra aba.
+- Os atalhos "Ver tela real no manual" foram removidos do desbloqueio.
+- A busca de conteúdo continua disponível.
+
+VALIDAÇÃO REALIZADA
+- Abertura do Cosmo.
+- Ravex com duas mãos, teclado dinâmico e visor atualizado.
+- Etapa de software ampliada, com cursor e foco legíveis.
+- Manual Smart TAB navegando da página 1 para a página 2 dentro do modal.
+- Console do navegador sem erros.
+
+ARQUIVOS PRINCIPAIS
+- index.html: estrutura do portal.
+- styles.css: identidade visual, dispositivos, mãos e animações.
+- app.js: dados, roteiros, navegação, estados das animações e leitor de manuais.
+- assets/manuals/: páginas renderizadas e PDFs de origem.
+- assets/devices/ e assets/tech/: referências visuais dos equipamentos.
+
+OBSERVAÇÕES PARA CONTINUIDADE
+- Não substituir as interfaces dinâmicas do desbloqueio por screenshots inteiras.
+- Não inventar sequência de macros ainda não validada pelo usuário.
+- Manter o nome Cosmo; não voltar a usar "Analista".
+- A área ADM ainda é um protótipo local. Para produção, exige autenticação e armazenamento no servidor.
+
+ATUALIZAÇÃO 28/10/2026
+- O passo a passo do desbloqueio não possui mais animações automáticas de mouse ou teclado.
+- Cada tela horizontal combina o texto integral do Excel com a imagem original mais próxima daquela etapa. Os textos e imagens são carregados do pacote Smart-Risk-Manuais.zip.
+- As etapas não são resumidas. Exemplo: o fluxo Ravex agora exibe 10 telas extraídas do conteúdo original.
+- A demonstração animada foi separada do procedimento. Um botão de player abre "Demonstração em vídeo".
+- A Autotrac usa o MP4 fornecido pelo usuário. As outras tecnologias usam a fotografia real do equipamento com uma demonstração visual separada; não alteram o roteiro oficial.
+- A biblioteca de manuais agora é organizada por tecnologia e oferece três áreas: Manual completo, Assuntos principais e Manual do teclado.
+- Todas as tecnologias possuem a opção de gerar um PDF do motorista a partir do procedimento completo. Quando existe um manual original de teclado, ele também pode ser aberto no leitor interno.
+- A Área ADM passou a ter abas para treinar o Cosmo, importar arquivos e cadastrar manuais por tecnologia.
+- TXT, CSV, JSON e Markdown são lidos no navegador e adicionados à base local. PDF, Excel, áudio e apresentações são registrados como pendentes de processamento no servidor; não são apresentados como memorizados sem extração real.
+- O Cosmo aceita treinamento por orientação e conversa simulada. Áudios podem ser registrados para futura transcrição.
+- Perguntas que solicitem roubo, desvio de carga, fraude ou evasão do rastreamento recebem uma recusa segura.
+- O login administrativo continua local ao navegador: no primeiro acesso o administrador configura e-mail e senha; a senha é armazenada apenas como hash SHA-256.
+ATUALIZAÇÃO 29/10/2026
+- A página de tecnologia não reutiliza teclados, tablets ou procedimentos de desbloqueio.
+- Existem sete categorias de software: SIGHRA, RAVEX, ONIXSAT, OMNILINK, SASCAR, POSITRON e AUTOTRAC; SASCAR aparece somente uma vez.
+- A imagem da RAVEX na biblioteca de teclados é o teclado real fornecido pelo usuário.
+- Manuais enviados pelo ADM são armazenados com o arquivo em IndexedDB e aparecem na biblioteca pública de teclado ou tecnologia.
+- Quando o ADM está autenticado, o portal pula a abertura do Cosmo e mostra “Sair da Área ADM”.
+- "Manuais de teclado" e "Manuais de tecnologia" agora são abas independentes no menu principal; o seletor interno duplicado foi removido.
+- Ambas as bibliotecas começam pela escolha da tecnologia.
+- A SIGHRA também possui o botão de observações, agora com 30 px.
+- O acesso ADM abre `admin-login.html`; a senha não aparece na interface.
+- Após autenticar, `admin.html` oferece a biblioteca normal do operador e uma aba Cosmo em formato de chat.
+- A engrenagem compacta do Cosmo abre os painéis de Orientações, Arquivos e Manuais.
+- O passo a passo usa títulos simples: Etapa 1, Etapa 2, Etapa 3 etc.
+- Blocos iniciados por "Obs:" não contam mais como etapas e aparecem no botão redondo de exclamação.
+- Observações internas também são retiradas da descrição e reunidas no mesmo alerta.
+- Não há mais texto sobreposto às imagens do desbloqueio.
+- O botão "Entrar na Área ADM" voltou ao cabeçalho e também aparece no menu responsivo.
+- Login local de demonstração: admin@smartrisk.com.br / SmartRisk@2026.
+- Manuais de teclado e manuais de tecnologia agora são páginas diferentes.
+- A página de teclado lista as tecnologias e abre o PDF original disponível.
+- A página de tecnologia reúne os manuais de software e os procedimentos completos por tecnologia.
+- As imagens do desbloqueio podem ser ampliadas dentro da própria página.
+- As sete categorias de software usam as logos fornecidas pelo usuário, armazenadas em `assets/systems/`: SIGHRA, RAVEX, ONIXSAT, OMNILINK, SASCAR, POSITRON e AUTOTRAC.
+- Essas logos identificam sistemas na página "Manuais de tecnologia"; não devem ser substituídas por fotos de teclados, tablets ou etapas do desbloqueio.
+
+ATUALIZAÇÃO 29/10/2026 - MANUAIS E CONFIGURAÇÃO
+- A conversa simulada do ADM virou um chat de treinamento. O administrador envia a pergunta do operador, depois a resposta correta, e o Cosmo salva o par na base local.
+- A Área ADM possui uma aba principal chamada "Configuração", com Treinar Cosmo, Arquivos e Manuais.
+- A engrenagem do Cosmo direciona para a aba Configuração.
+- O player de demonstração foi retirado da página de desbloqueio até a definição das animações futuras.
+- A etapa 1 da RAVEX prioriza a imagem posterior ao texto no Excel, exibindo a captura correta do botão esquerdo/ContraSenha em vez da imagem geral do teclado.
+- O zoom das imagens do desbloqueio permite avançar e voltar pelas etapas sem fechar a janela.
+- O leitor de manuais possui lupa, pesquisa textual por palavra-chave, redimensionamento maior e navegação entre páginas dentro do zoom.
+- Foram incorporados e indexados sete manuais da pasta C:\Users\ygor\Documents\Manuais teclados.
+- Manuais de software: Sascar e Sighra, exibidos em Manuais de tecnologia.
+- Manuais de equipamento: Autotrac, Híbrido Sascar, Onixsat, Novo Tablet Sascar e TD50.
+- O TD50 foi associado ao modelo "Teclado Sascar" e o manual Híbrido ao modelo "Híbrido".
+- Quando um manual novo corresponde a uma tecnologia com material anterior, o novo manual é exibido como a versão atualizada, sem duplicar o botão antigo.
+
