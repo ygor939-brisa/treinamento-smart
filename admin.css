@@ -28,3 +28,15 @@
 .training-chat-form button{color:#fff;background:#172778;border:0;font-size:20px}
 .training-chat-reset{margin:0 15px 15px!important;padding:9px 12px!important;color:#53677b!important;background:#fff!important;border:1px solid #cbd6df!important;font-size:9px!important}
 @media(max-width:760px){.admin-page-tabs{overflow-x:auto}.admin-page-tabs button{white-space:nowrap}.settings-tabs{padding:0 14px;overflow-x:auto}.settings-panel{padding:22px 14px}.training-bubble{max-width:88%}}
+
+/* Ícones e listas de configuração */
+.library-icon img{width:22px;height:22px;object-fit:contain;opacity:.78}
+.settings-list-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:28px 0 8px;padding-top:22px;border-top:1px solid var(--line)}
+.settings-list-head b{font-size:13px}.settings-list-head small{color:var(--muted);font-size:9px}
+.cosmo-header-actions{display:flex!important;flex-direction:row!important;align-items:center;gap:8px}
+.admin-save-chat{min-height:34px;padding:0 12px;color:#172778;background:#fff;border:1px solid #c6d2dc;font-size:9px;font-weight:800}
+.admin-save-chat:hover{color:#fff;background:#172778;border-color:#172778}
+.saved-contexts-intro{padding:4px 0 18px;border-bottom:1px solid var(--line)}
+.saved-contexts-intro>span{color:#0875c8;font-size:9px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.saved-contexts-intro h3{margin:8px 0 6px;font-size:20px}.saved-contexts-intro p{max-width:760px;margin:0;color:var(--muted);font-size:11px;line-height:1.65}
+@media(max-width:760px){.settings-list-head{align-items:flex-start;flex-direction:column;gap:5px}}

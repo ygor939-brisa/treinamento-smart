@@ -994,6 +994,19 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .step-zoom-controls button:last-child { color:#fff;background:var(--navy-800);border-color:var(--navy-800); }
 .step-zoom-controls button:disabled { opacity:.4; }
 .step-zoom-controls strong { text-align:center;color:#526477;font-size:11px; }
+.workspace-tools { display:flex;align-items:center;gap:9px; }
+.video-tutorial-button { width:36px;height:36px;display:grid;place-items:center;padding:0;color:#fff;background:#172778;border:0;font-size:13px;box-shadow:0 8px 18px rgba(18,35,108,.18); }
+.video-tutorial-button[hidden] { display:none; }
+.video-tutorial-button:hover { background:#087fe0; }
+.video-tutorial-dialog { width:min(980px,calc(100% - 24px));max-height:92vh;padding:28px 32px 32px;border:0;background:#f5f7f9;box-shadow:0 35px 90px rgba(0,0,0,.45); }
+.video-tutorial-dialog::backdrop { background:rgba(3,10,20,.84);backdrop-filter:blur(4px); }
+.video-tutorial-dialog h2 { margin:8px 0 18px;color:#0c1730;font-size:24px; }
+.video-tutorial-dialog video { display:block;width:100%;max-height:72vh;background:#02060b; }
+.chat-header-actions { display:flex!important;align-items:center;gap:8px; }
+.save-chat-button { min-height:34px;padding:0 12px;color:#172778;background:#fff;border:1px solid #c6d2dc;font-size:9px;font-weight:800; }
+.save-chat-button:hover { color:#fff;background:#172778;border-color:#172778; }
+.driver-pdf-links { display:grid;gap:7px;margin-top:14px;padding-top:12px;border-top:1px solid #dbe3e9; }
+.driver-pdf-links>small { color:#617387;font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase; }
 @media(max-width:760px) {
   .manual-dialog .dialog-body { padding:25px 14px; }
   .manual-page-viewport { min-height:390px;padding:8px; }
@@ -1005,4 +1018,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   .manual-zoom-stage img { min-height:0;max-width:100%; }
   .step-zoom-controls { grid-template-columns:1fr 1fr; }
   .step-zoom-controls strong { grid-column:1/-1;grid-row:1; }
+  .video-tutorial-dialog { padding:55px 12px 14px; }
+  .chat-header-actions { gap:5px; }
+  .save-chat-button { padding:0 8px; }
 }

@@ -36,6 +36,19 @@ Portal estático de apoio à operação Smart Risk. A primeira versão inclui:
 - imagem da etapa 1 da RAVEX associada à captura correta do botão esquerdo e da opção ContraSenha;
 - leitor ampliado com navegação entre páginas, busca textual por palavra-chave e imagens renderizadas em maior resolução;
 - manuais atualizados incorporados: software Sascar, software Sighra, teclado Autotrac, teclado Híbrido Sascar, teclado Onixsat, novo tablet Sascar e TD50/teclado Sascar.
+- índice OCR para páginas digitalizadas, permitindo pesquisar palavras mesmo quando o PDF contém apenas imagens;
+- pesquisa tolerante a acentos, hífens, espaços e pequenas variações de escrita;
+- após o login administrativo, abertura direta em `admin.html#settings`;
+- item “Configurações” no menu normal do portal enquanto a sessão ADM estiver ativa, preservando também a opção “Sair da Área ADM”.
+- tutoriais em vídeo de desbloqueio para Autotrac, Omnilink, Onixsat e Positron, abertos por um player compacto na tecnologia correspondente;
+- biblioteca administrativa com os ícones fornecidos para manuais, Cosmo e desbloqueio;
+- categoria administrativa “PDF para o motorista”, publicada no cartão da tecnologia e removível pela configuração;
+- exclusão de manuais, PDFs do motorista, arquivos do Cosmo e contextos salvos;
+- conversas do Cosmo podem ser salvas pelo administrador e passam a compor a base local de respostas;
+- base leve incorporada sobre logística, transporte rodoviário, caminhões e rastreabilidade de carga.
+- envio das mensagens do Cosmo com Enter; Shift+Enter permanece disponível para uma quebra de linha intencional;
+- treinamento duplicado removido da Configuração: o administrador ensina pelo próprio chat do Cosmo e salva a conversa como contexto;
+- base padrão ampliada com definições de caminhão, carreta, cavalo mecânico, rota, carga, logística e rastreamento.
 
 ## Pré-visualização local
 

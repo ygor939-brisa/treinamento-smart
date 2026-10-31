@@ -234,7 +234,13 @@ technologies.forEach((tech) => {
     tech.notices.push("Caso o veículo não seja desbloqueado mesmo após seguir todo o passo a passo, acione um técnico para verificar um possível problema no veículo. Sempre que possível, realize o procedimento com fotos e vídeos da situação atual para facilitar a análise.");
   }
   tech.trainingKey = trainingKey || "";
-  tech.demo = tech.id === "autotrac" ? "assets/demos/autotrac.mp4" : "";
+  const unlockVideos = {
+    autotrac: "assets/unlock-videos/autotrac.mp4",
+    omnilink: "assets/unlock-videos/omnilink.mp4",
+    onixsat: "assets/unlock-videos/onixsat.mp4",
+    positron: "assets/unlock-videos/positron.mp4",
+  };
+  tech.video = unlockVideos[tech.id] || "";
 });
 
 const tabletModels = ["smart-tab", "sasmdt", "positron-tablet"];
@@ -268,6 +274,13 @@ const builtInKnowledge = [
   { keys: ["placa","pesquisar","pesquisa"], answer: "No grid de monitoramento, filtre pela placa disponível na sua hierarquia. O menu de contexto da placa reúne telas filtradas e ações rápidas.", source: "Manual do Sistema de Gestão de Riscos" },
   { keys: ["texto livre","mensagem"], answer: "Abra <b>Mensagens</b>, escolha texto livre, digite e revise antes de confirmar. No OnixSmart, pressione 1 na tela principal e use ALT para alternar caracteres.", source: "Smart TAB + OnixSmart" },
   { keys: ["desbloqueio","sem sinal","contrassenha","senha"], answer: "Confirme placa, tecnologia, falta de sinal e autorização. Abra a função de segurança no equipamento e mantenha a tela. Gere a resposta somente na plataforma autorizada.", source: "Treinamento Central Atualizado" },
+  { keys: ["logística","logistica"], answer: "Logística é o planejamento e o controle do fluxo de mercadorias, informações e recursos desde a origem até o destino. Ela envolve coleta, armazenagem, transporte, rastreamento e entrega.", source: "Conhecimento básico de logística" },
+  { keys: ["caminhão","caminhao","truck"], answer: "Caminhão é um veículo rodoviário projetado principalmente para transportar cargas. Ele pode ter carroceria própria ou trabalhar como <b>cavalo mecânico</b>, tracionando uma carreta ou semirreboque.", source: "Conhecimento básico de transporte rodoviário" },
+  { keys: ["carreta","semirreboque","semi reboque"], answer: "Carreta é o conjunto usado no transporte de cargas formado, em geral, por um cavalo mecânico e um semirreboque. O semirreboque não possui tração própria e depende do cavalo mecânico.", source: "Conhecimento básico de transporte rodoviário" },
+  { keys: ["cavalo mecânico","cavalo mecanico"], answer: "Cavalo mecânico é a parte motorizada do conjunto rodoviário. Ele possui cabine e motor e é responsável por tracionar a carreta ou o semirreboque.", source: "Conhecimento básico de transporte rodoviário" },
+  { keys: ["rota","itinerário","itinerario","eta"], answer: "Rota é o caminho planejado entre a origem e o destino. Ela considera paradas, restrições, horários, riscos e o tempo estimado de chegada, também chamado de ETA.", source: "Conhecimento básico de logística" },
+  { keys: ["carga","embarque","coleta","descarga","entrega"], answer: "Carga é o conjunto de mercadorias transportadas. O fluxo normalmente passa por coleta, conferência, embarque, transporte, monitoramento, descarga e confirmação da entrega.", source: "Conhecimento básico de logística" },
+  { keys: ["manutenção","manutencao","pneu","checklist"], answer: "Antes da viagem, confirme pneus, iluminação, combustível, documentação e funcionamento dos equipamentos de rastreamento. Anomalias devem ser comunicadas antes da saída.", source: "Conhecimento básico de transporte rodoviário" },
 ];
 
 const pages = [...document.querySelectorAll("[data-page]")];
@@ -277,11 +290,15 @@ const splash = document.getElementById("splash");
 const menu = document.getElementById("mainNav");
 const menuToggle = document.getElementById("menuToggle");
 const publicAdminLinks = [...document.querySelectorAll(".admin-entry, .nav-admin-link")];
+const publicAdminConfigLinks = [...document.querySelectorAll(".admin-config-nav")];
 const publicAdminLoggedIn = localStorage.getItem("smartAdminAuthenticatedV4") === "true";
+const publicSaveChatButton = document.getElementById("saveChatContext");
+if (publicSaveChatButton) publicSaveChatButton.hidden = !publicAdminLoggedIn;
 
 function finishSplash() { splash?.classList.add("hide"); window.setTimeout(() => splash?.remove(), 600); }
 if (publicAdminLoggedIn) finishSplash(); else window.setTimeout(finishSplash, 4500);
 if (publicAdminLoggedIn) {
+  publicAdminConfigLinks.forEach((link) => { link.hidden = false; });
   publicAdminLinks.forEach((link) => {
     const label = link.querySelector("span");
     if (label) label.textContent = "Sair da Área ADM";
@@ -554,8 +571,9 @@ async function renderManuals() {
     const imported = importedKeyboardManual(tech.id);
     const manual = imported ? null : manuals.find((item) => item.id === keyboardManualMap[tech.id]);
     const uploaded = stored.filter((item) => item.category === "keyboard" && (item.technology === tech.id || (item.technology === "sascar" && tech.id.startsWith("sascar"))));
-    const available = Boolean(imported || manual || uploaded.length);
-    return `<article class="manual-card technology-manual-card"><div class="manual-thumb"><img loading="lazy" src="${keyboardImageMap[tech.id] || tech.photo}" alt="Teclado ${escapeHtml(tech.name)}" /></div><div class="manual-copy"><div class="manual-meta"><span>Manual de teclado</span><span>${available ? `${uploaded.length + (imported || manual ? 1 : 0)} arquivo(s)` : "Aguardando arquivo"}</span></div><h3>${escapeHtml(tech.name)}</h3><p>${imported ? escapeHtml(imported.title) : manual ? escapeHtml(manual.description) : "Manuais e orientações do teclado desta tecnologia."}</p><div class="manual-tags"><span>${escapeHtml(tech.kind)}</span><span>${available ? "Disponível" : "Sem manual cadastrado"}</span></div>${imported ? `<button class="manual-open" type="button" data-imported-manual="${imported.id}">Abrir manual atualizado ${icon("arrow")}</button>` : manual ? `<button class="manual-open" type="button" data-keyboard-manual="${manual.id}">Abrir manual original ${icon("arrow")}</button>` : ""}${storedManualButtons(uploaded)}</div></article>`;
+    const driverPdfs = stored.filter((item) => item.category === "driver" && (item.technology === tech.id || (item.technology === "sascar" && tech.id.startsWith("sascar"))));
+    const available = Boolean(imported || manual || uploaded.length || driverPdfs.length);
+    return `<article class="manual-card technology-manual-card"><div class="manual-thumb"><img loading="lazy" src="${keyboardImageMap[tech.id] || tech.photo}" alt="Teclado ${escapeHtml(tech.name)}" /></div><div class="manual-copy"><div class="manual-meta"><span>Manual de teclado</span><span>${available ? `${uploaded.length + driverPdfs.length + (imported || manual ? 1 : 0)} arquivo(s)` : "Aguardando arquivo"}</span></div><h3>${escapeHtml(tech.name)}</h3><p>${imported ? escapeHtml(imported.title) : manual ? escapeHtml(manual.description) : "Manuais e orientações do teclado desta tecnologia."}</p><div class="manual-tags"><span>${escapeHtml(tech.kind)}</span><span>${available ? "Disponível" : "Sem manual cadastrado"}</span></div>${imported ? `<button class="manual-open" type="button" data-imported-manual="${imported.id}">Abrir manual atualizado ${icon("arrow")}</button>` : manual ? `<button class="manual-open" type="button" data-keyboard-manual="${manual.id}">Abrir manual original ${icon("arrow")}</button>` : ""}${storedManualButtons(uploaded)}${driverPdfs.length ? `<div class="driver-pdf-links"><small>PDF para o motorista</small>${storedManualButtons(driverPdfs)}</div>` : ""}</div></article>`;
   }).join("");
   document.getElementById("manualEmpty").hidden = filtered.length > 0;
   manualGrid.querySelectorAll("[data-keyboard-manual]").forEach((button) => button.addEventListener("click", () => openManual(button.dataset.keyboardManual)));
@@ -611,7 +629,8 @@ async function openStoredManual(id) {
   if (!item) return;
   const objectUrl = URL.createObjectURL(item.file);
   const isPdf = item.mime === "application/pdf" || /\.pdf$/i.test(item.fileName || "");
-  document.getElementById("dialogContent").innerHTML = `<div class="dialog-body stored-manual-dialog"><div class="dialog-head"><span class="section-kicker">${item.category === "keyboard" ? "Manual de teclado" : "Manual de tecnologia"}</span><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.technologyName || item.technology)}</p></div>${isPdf ? `<iframe src="${objectUrl}" title="${escapeHtml(item.title)}"></iframe>` : `<div class="stored-file-message"><b>Arquivo cadastrado</b><p>Use o botão abaixo para abrir ou baixar o documento.</p></div>`}<a class="primary-button" href="${objectUrl}" download="${escapeHtml(item.fileName || item.title)}">Baixar arquivo</a></div>`;
+  const labels = { keyboard: "Manual de teclado", technology: "Manual de tecnologia", driver: "PDF para o motorista" };
+  document.getElementById("dialogContent").innerHTML = `<div class="dialog-body stored-manual-dialog"><div class="dialog-head"><span class="section-kicker">${labels[item.category] || "Documento"}</span><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.technologyName || item.technology)}</p></div>${isPdf ? `<iframe src="${objectUrl}" title="${escapeHtml(item.title)}"></iframe>` : `<div class="stored-file-message"><b>Arquivo cadastrado</b><p>Use o botão abaixo para abrir ou baixar o documento.</p></div>`}<a class="primary-button" href="${objectUrl}" download="${escapeHtml(item.fileName || item.title)}">Baixar arquivo</a></div>`;
   manualDialog.showModal();
   manualDialog.addEventListener("close", () => URL.revokeObjectURL(objectUrl), { once: true });
 }
@@ -753,6 +772,8 @@ function renderUnlock() {
   const photo = document.getElementById("techPhoto");
   photo.hidden = !selectedTech.photo;
   if (selectedTech.photo) photo.src = selectedTech.photo;
+  const videoButton = document.getElementById("videoTutorialButton");
+  videoButton.hidden = isChooser || !selectedTech.video;
   renderChooser();
   if (isChooser) return;
   const step = selectedTech.steps[unlockStep];
@@ -786,6 +807,23 @@ document.getElementById("unlockNoticeButton").addEventListener("click", () => {
 });
 document.getElementById("closeUnlockNotice").addEventListener("click", () => unlockNoticeDialog.close());
 unlockNoticeDialog.addEventListener("click", (event) => { if (event.target === unlockNoticeDialog) unlockNoticeDialog.close(); });
+
+const videoTutorialDialog = document.getElementById("videoTutorialDialog");
+const videoTutorialPlayer = document.getElementById("videoTutorialPlayer");
+function closeVideoTutorial() {
+  videoTutorialPlayer.pause();
+  videoTutorialPlayer.removeAttribute("src");
+  videoTutorialPlayer.load();
+  videoTutorialDialog.close();
+}
+document.getElementById("videoTutorialButton").addEventListener("click", () => {
+  if (!selectedTech.video) return;
+  document.getElementById("videoTutorialTitle").textContent = `Desbloqueio ${selectedTech.name}`;
+  videoTutorialPlayer.src = selectedTech.video;
+  videoTutorialDialog.showModal();
+});
+document.getElementById("closeVideoTutorial").addEventListener("click", closeVideoTutorial);
+videoTutorialDialog.addEventListener("click", (event) => { if (event.target === videoTutorialDialog) closeVideoTutorial(); });
 
 const stepImageDialog = document.getElementById("stepImageDialog");
 function openUnlockImageZoom() {
@@ -975,11 +1013,18 @@ async function generateTechnologyDriverPdf(tech) {
   } catch (error) { console.error(error); showToast("Não foi possível gerar o PDF desta tecnologia."); }
 }
 
+let currentCosmoConversation = [];
+function plainMessageText(content = "") {
+  const element = document.createElement("div");
+  element.innerHTML = String(content);
+  return element.textContent.trim();
+}
 function appendMessage(content, type = "bot", source = "") {
   const wrapper = document.createElement("div");
   wrapper.className = `message ${type === "user" ? "user-message" : "bot-message"}`;
   wrapper.innerHTML = type === "bot" ? `<span class="message-avatar">${icon("bot")}</span><div><p>${content}</p><small>${source ? `Fonte: ${escapeHtml(source)}` : "Agora"}</small></div>` : `<div><p>${escapeHtml(content)}</p><small>Agora</small></div>`;
   document.getElementById("chatMessages").appendChild(wrapper);
+  currentCosmoConversation.push({ role: type === "user" ? "user" : "assistant", text: type === "user" ? String(content) : plainMessageText(content), source });
   wrapper.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 function findAnswer(question) {
@@ -992,8 +1037,25 @@ function findAnswer(question) {
   return ranked[0]?.score ? ranked[0].item : { answer: "Ainda não encontrei essa orientação na base. Tente citar o equipamento e a função desejada ou peça ao administrador para cadastrar o procedimento.", source: "Base de treinamento" };
 }
 document.getElementById("chatForm").addEventListener("submit", (event) => { event.preventDefault(); const input = document.getElementById("chatInput"); const question = input.value.trim(); if (!question) return; appendMessage(question,"user"); input.value = ""; const result = findAnswer(question); window.setTimeout(() => appendMessage(result.answer,"bot",result.source), 350); });
+document.getElementById("chatInput").addEventListener("keydown", (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); document.getElementById("chatForm").requestSubmit(); } });
 document.querySelectorAll(".suggestions button").forEach((button) => button.addEventListener("click", () => { document.getElementById("chatInput").value = button.textContent; document.getElementById("chatForm").requestSubmit(); }));
-document.getElementById("clearChat").addEventListener("click", () => { document.getElementById("chatMessages").innerHTML = `<div class="message bot-message"><span class="message-avatar">${icon("bot")}</span><div><p>Conversa limpa. Como posso ajudar?</p><small>Agora</small></div></div>`; });
+document.getElementById("clearChat").addEventListener("click", () => { currentCosmoConversation = []; document.getElementById("chatMessages").innerHTML = `<div class="message bot-message"><span class="message-avatar">${icon("bot")}</span><div><p>Conversa limpa. Como posso ajudar?</p><small>Agora</small></div></div>`; });
+document.getElementById("saveChatContext").addEventListener("click", () => {
+  const userMessages = currentCosmoConversation.filter((message) => message.role === "user");
+  const assistantMessages = currentCosmoConversation.filter((message) => message.role === "assistant");
+  if (!userMessages.length || !assistantMessages.length) { showToast("Converse com o Cosmo antes de salvar o contexto."); return; }
+  const lastQuestion = userMessages.at(-1).text;
+  const lastAnswer = assistantMessages.at(-1).text;
+  const conversation = { id: crypto.randomUUID(), title: lastQuestion.slice(0, 70), createdAt: Date.now(), messages: currentCosmoConversation.slice() };
+  const saved = JSON.parse(localStorage.getItem("smartSavedCosmoConversations") || "[]");
+  saved.unshift(conversation);
+  localStorage.setItem("smartSavedCosmoConversations", JSON.stringify(saved));
+  const knowledge = JSON.parse(localStorage.getItem("smartKnowledge") || "[]");
+  const keywords = lastQuestion.toLocaleLowerCase("pt-BR").split(/[^a-záàâãéêíóôõúç0-9]+/i).filter((word) => word.length > 3).slice(0, 14);
+  knowledge.unshift({ id: conversation.id, title: `Conversa salva: ${lastQuestion.slice(0, 55)}`, category: "Conversa do operador", question: lastQuestion, answer: lastAnswer, keywords });
+  localStorage.setItem("smartKnowledge", JSON.stringify(knowledge));
+  showToast("Conversa salva e adicionada ao contexto do Cosmo.");
+});
 
 const credentialKey = "smartAdminCredentialV3";
 const sessionKey = "smartAdminSessionV3";

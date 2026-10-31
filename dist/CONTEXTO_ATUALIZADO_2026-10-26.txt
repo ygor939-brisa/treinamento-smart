@@ -94,3 +94,24 @@ ATUALIZAÇÃO 29/10/2026 - MANUAIS E CONFIGURAÇÃO
 - O TD50 foi associado ao modelo "Teclado Sascar" e o manual Híbrido ao modelo "Híbrido".
 - Quando um manual novo corresponde a uma tecnologia com material anterior, o novo manual é exibido como a versão atualizada, sem duplicar o botão antigo.
 
+ATUALIZAÇÃO 30/10/2026 - OCR E RETORNO ÀS CONFIGURAÇÕES
+- A busca dos manuais combina o texto interno do PDF com OCR das páginas digitalizadas.
+- Foram processadas por OCR 129 páginas com camada textual ausente ou insuficiente.
+- A pesquisa aceita variações de acentuação, pontuação, hífen e separação de palavras, como "contra senha" e "contrassenha".
+- Ao encontrar o termo, o leitor leva diretamente à página correspondente e mantém a navegação dentro do zoom.
+- O login ADM agora direciona para `admin.html#settings`.
+- A aba principal "Configuração" é ativada automaticamente após o login.
+- Enquanto a sessão ADM estiver ativa, o menu normal do portal mostra "Configurações", que retorna ao mesmo painel, e mantém a opção "Sair da Área ADM".
+
+ATUALIZAÇÃO 31/10/2026
+- Tutoriais em vídeo adicionados para Autotrac, Omnilink, Onixsat e Positron; cada vídeo abre em um player compacto dentro do desbloqueio correspondente.
+- A Configuração permite adicionar e excluir manuais de teclado, manuais de tecnologia e PDFs para o motorista.
+- PDFs para o motorista enviados pelo administrador aparecem no cartão da tecnologia escolhida.
+- Arquivos e contextos do Cosmo podem ser excluídos pelo administrador.
+- Conversas do Cosmo podem ser salvas e passam a integrar a base local de respostas.
+- Base padrão ampliada de forma leve com conceitos de logística, caminhões, rota, carga, coleta e entrega.
+- Biblioteca operacional usa os ícones fornecidos em assets/icons.
+- O chat do Cosmo envia com Enter; Shift+Enter insere uma quebra de linha.
+- A interface duplicada “Treinar Cosmo” foi removida. O administrador conversa na aba Cosmo, salva a conversa e gerencia os contextos na Configuração.
+- A base padrão inclui definições de caminhão/truck, carreta, cavalo mecânico, logística, rota, carga, entrega e rastreamento.
+
